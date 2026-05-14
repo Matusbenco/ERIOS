@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERI OS — Konkurenčná mapa ERP systémov | Máj 2026</title>
+<style>
+  :root {
+    --primary: #1a237e;
+    --accent: #0d47a1;
+    --highlight: #e3f2fd;
+    --green: #1b5e20;
+    --green-light: #e8f5e9;
+    --red: #b71c1c;
+    --red-light: #ffebee;
+    --orange: #e65100;
+    --orange-light: #fff3e0;
+    --gray: #546e7a;
+    --gray-light: #eceff1;
+    --border: #b0bec5;
+    --text: #212121;
+    --subtext: #455a64;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+    background: #fff;
+  }
+  .cover {
+    background: linear-gradient(135deg, #0d47a1 0%, #1a237e 60%, #311b92 100%);
+    color: white;
+    padding: 60px 48px;
+    min-height: 220px;
+  }
+  .cover-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .cover h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .cover h2 { font-size: 16px; font-weight: 400; opacity: 0.85; margin-bottom: 20px; }
+  .cover-meta { font-size: 12px; opacity: 0.7; }
+  .toc {
+    background: var(--gray-light);
+    padding: 28px 48px;
+    border-bottom: 2px solid var(--border);
+  }
+  .toc h3 { color: var(--primary); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 4px; color: var(--accent); font-size: 13px; }
+  .content { padding: 0 48px 60px; }
+  .section {
+    margin-top: 44px;
+    padding-top: 8px;
+    border-top: 3px solid var(--primary);
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .section-subtitle {
+    font-size: 13px;
+    color: var(--subtext);
+    margin-bottom: 20px;
+  }
+  .vendor-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .vendor-header {
+    background: var(--primary);
+    color: white;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .vendor-header.accent { background: var(--accent); }
+  .vendor-header.green { background: var(--green); }
+  .vendor-header.gray { background: var(--gray); }
+  .vendor-name { font-size: 15px; font-weight: 700; }
+  .vendor-tag {
+    font-size: 10px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 3px;
+    padding: 2px 8px;
+    letter-spacing: 0.5px;
+  }
+  .vendor-body { padding: 14px 16px; background: white; }
+  .vendor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .vendor-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .info-block label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--subtext);
+    margin-bottom: 3px;
+  }
+  .info-block p { font-size: 13px; color: var(--text); }
+  .info-block p strong { color: var(--primary); }
+  .activity-box {
+    background: var(--orange-light);
+    border-left: 3px solid var(--orange);
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--text);
+    border-radius: 0 4px 4px 0;
+    margin-top: 8px;
+  }
+  .activity-box strong { color: var(--orange); }
+  .impact-box {
+    background: var(--green-light);
+    border-left: 3px solid var(--green);
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--text);
+    border-radius: 0 4px 4px 0;
+    margin-top: 8px;
+  }
+  .impact-box strong { color: var(--green); }
+  .risk-box {
+    background: var(--red-light);
+    border-left: 3px solid var(--red);
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--text);
+    border-radius: 0 4px 4px 0;
+    margin-top: 8px;
+  }
+  .risk-box strong { color: var(--red); }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  th {
+    background: var(--primary);
+    color: white;
+    padding: 9px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--gray-light); }
+  tr:hover td { background: var(--highlight); }
+  .check { color: #2e7d32; font-weight: bold; }
+  .cross { color: #c62828; font-weight: bold; }
+  .partial { color: #e65100; font-weight: bold; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    margin: 1px;
+  }
+  .tag-enterprise { background: #1a237e; color: white; }
+  .tag-midmarket { background: #0d47a1; color: white; }
+  .tag-smb { background: #1565c0; color: white; }
+  .tag-pos { background: #2e7d32; color: white; }
+  .tag-skez { background: #4a148c; color: white; }
+  .tag-erp { background: #37474f; color: white; }
+  .tag-cloud { background: #006064; color: white; }
+  .tag-hybrid { background: #e65100; color: white; }
+  .tag-open { background: #558b2f; color: white; }
+  .highlight-eri {
+    background: linear-gradient(90deg, #e3f2fd, #f3e5f5);
+    border: 2px solid #7b1fa2;
+    font-weight: 700;
+  }
+  .highlight-eri td { font-weight: 600; }
+  .update-log-row td { font-size: 11px; }
+  .section-label {
+    background: var(--gray-light);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--subtext);
+    padding: 6px 10px !important;
+    border-top: 2px solid var(--border);
+  }
+  .footer {
+    margin-top: 48px;
+    padding: 20px 48px;
+    border-top: 2px solid var(--border);
+    background: var(--gray-light);
+    font-size: 11px;
+    color: var(--subtext);
+    display: flex;
+    justify-content: space-between;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .price-big { font-size: 18px; font-weight: 700; color: var(--primary); }
+  .price-unit { font-size: 11px; color: var(--subtext); }
+  .eri-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #7b1fa2, #1565c0);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .divider { height: 1px; background: var(--border); margin: 12px 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .note { font-size: 11px; color: var(--subtext); font-style: italic; margin-top: 6px; }
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { page-break-inside: avoid; }
+    .vendor-card { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Competitive Intelligence Report</div>
+  <h1>ERI OS — Konkurenčná mapa ERP systémov</h1>
+  <h2>Komplexné porovnanie: USA · Európa · SK/CZ &nbsp;|&nbsp; 20+ systémov</h2>
+  <div class="cover-meta">Verzia: Máj 2026 &nbsp;·&nbsp; Pripravil: Claude AI Agent &nbsp;·&nbsp; Pre: Matúš Benčo / ERI OS</div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>Obsah dokumentu</h3>
+  <ol>
+    <li>US Enterprise ERP — SAP, Oracle, Microsoft Dynamics 365 Finance, Workday, Infor</li>
+    <li>US/Global Mid-Market ERP — NetSuite, Business Central, Epicor, IFS, Acumatica, Sage, Syspro, Odoo</li>
+    <li>Európske ERP — AFAS, Exact, Visma, Cegid, Unit4, Comarch</li>
+    <li>SK/CZ ERP — Helios, ABRA Gen/Flexi, Money ERP, Vario, Byznys ERP, Pohoda, KROS, ERPNext</li>
+    <li>Matica funkcií — porovnanie 25+ funkcií naprieč systémami</li>
+    <li>Pricing prehľad — zoradené od najlacnejšieho po enterprise</li>
+    <li>Aktivity & novinky 2025–2026 — čo sa dialo za posledných 12 mesiacov</li>
+    <li>Dopad na ERI OS — positioning, príležitosti, riziká</li>
+  </ol>
+</div>
+
+<div class="content">
+
+<!-- ================================================================ -->
+<!-- SECTION 1: US ENTERPRISE ERP -->
+<!-- ================================================================ -->
+<div class="section" id="s1">
+  <div class="section-title">1. US Enterprise ERP</div>
+  <div class="section-subtitle">Veľkopodniková trieda · Zväčša 500+ zamestnancov · Implementácia 18–36 mesiacov</div>
+
+  <!-- SAP -->
+  <div class="vendor-card">
+    <div class="vendor-header">
+      <span class="vendor-name">SAP S/4HANA</span>
+      <span class="vendor-tag">🌐 Enterprise Global #1 &nbsp;|&nbsp; <a href="https://www.sap.com" style="color:white">sap.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena (Public Cloud)</label>
+          <p><span class="price-big">$180</span><span class="price-unit">/user/mes</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Enterprise (1 000+ zamestnancov), manufacturing, automotive, energie</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>On-premise, Private Cloud, Public Cloud (RISE with SAP)</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Najhlbší pokrytie priemyselných procesov, regulácia, compliance, 180+ krajín, SAP Joule AI asistent, RISE with SAP hyperscaler migration program</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Extrémne nákladná implementácia (€500K–€5M+), zložitosť, závislosť na SAP konzultantoch, pomalé cloud adopcie (len 35% na S/4HANA Cloud)</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> SAP Joule AI asistent plne integrovaný do S/4HANA; RISE with SAP program tlačí zákazníkov na cloud migráciu do 2030 (ECC end-of-mainstream maintenance); SAP Build AI platform pre low-code customizáciu; akvizícia WalkMe pre digital adoption
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Priamy kompetitor NIE — SAP cieli na 1000+ org. ERI OS môže pozicionovať ako "alternatíva pre firmy, ktoré nechcú SAP komplexnosť za 5× nižšiu cenu". SAP odchádzajúci zákazníci (príliš drahé) = naša príležitosť.
+      </div>
+    </div>
+  </div>
+
+  <!-- Oracle ERP Cloud -->
+  <div class="vendor-card">
+    <div class="vendor-header">
+      <span class="vendor-name">Oracle ERP Cloud (Fusion)</span>
+      <span class="vendor-tag">🌐 Enterprise #2 &nbsp;|&nbsp; <a href="https://www.oracle.com/erp" style="color:white">oracle.com/erp</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">$625</span><span class="price-unit">/user/mes (enterprise) | od $175 financie</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Enterprise (500+), finančné služby, utilities, vláda, zdravotníctvo</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>Pure SaaS (Oracle Cloud Infrastructure), automatické štvrťročné updates</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Najsilnejší financials modul, AI/ML vbudovaný, Oracle AI Agents pre automatizáciu, end-to-end od supply chain po HCM, zero downtime updates</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Veľmi drahé, lock-in na Oracle Cloud, komplexná implementácia (6–18 mes.), slabšia manufacturing vertikála vs SAP</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Oracle Fusion Applications rozšírené o generatívne AI funkcie; Oracle AI Agents pre automatizáciu AP/AR; akvizičná aktivita v oblasti supply chain analytics
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Žiadny priamy overlap. Referenčná hodnota: ak Oracle stojí $625/user, ERI OS za zlomok ceny s integrovaným hardware je silný argument pre SME segment.
+      </div>
+    </div>
+  </div>
+
+  <!-- Microsoft Dynamics 365 Finance -->
+  <div class="vendor-card">
+    <div class="vendor-header accent">
+      <span class="vendor-name">Microsoft Dynamics 365 Finance + SCM</span>
+      <span class="vendor-tag">🌐 Enterprise/Mid &nbsp;|&nbsp; <a href="https://dynamics.microsoft.com" style="color:white">dynamics.microsoft.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena D365 Finance</label>
+          <p><span class="price-big">$180</span><span class="price-unit">/user/mes · SCM: $180/user</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Large mid-market a enterprise, retail, výroba, distribúcia — MS ekosystém</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>Azure Cloud (SaaS), hybrid, on-premise (obmedzené)</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Microsoft Copilot AI integrácia, Teams + Office 365 natívna integrácia, Power BI, Power Automate, silné lokalizácie vrátane SK/CZ cez Seyfor/partnerov</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Náklady na implementáciu (€100K–€1M), závislosť na MS partnerskej sieti, komplexnosť licencovania</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Copilot for Finance GA (generatívne AI pre reconciliation, forecasting); D365 + Teams deep integration; Seyfor (SK/CZ) je certifikovaný MS partner pre BC aj D365 Finance
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Seyfor-D365 kombinácia je náš priamy kompetitor na SK/CZ mid-market. ERI OS musí ukázať nižšiu TCO a rýchlejší onboarding pre firmy 20–200 zamestnancov.
+      </div>
+    </div>
+  </div>
+
+  <!-- Workday -->
+  <div class="vendor-card">
+    <div class="vendor-header gray">
+      <span class="vendor-name">Workday ERP</span>
+      <span class="vendor-tag">🌐 Enterprise HCM/Finance &nbsp;|&nbsp; <a href="https://www.workday.com" style="color:white">workday.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">$100–$200+</span><span class="price-unit">/user/mes (odhad, neverejné)</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Enterprise (500+ zam.), financie, services, tech spoločnosti — silný HCM+Finance duo</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>Pure SaaS, semi-ročné updates</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Najlepší HCM (HR) na trhu, moderné UI, silné reporting, Workday AI platforma, zoznam zákazníkov: 50% Fortune 500</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Slabá manufacturing vertikála, bez POS/skladu riešení, drahé, US-centric</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Workday AI Agents pre finance automation; rozširovanie do mid-market cez Workday Go program; akvizícia Evisort (contract intelligence)
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Minimálny overlap — Workday je HR-first, bez POS/hardware. Nie je priamy konkurent.
+      </div>
+    </div>
+  </div>
+
+  <!-- Infor -->
+  <div class="vendor-card">
+    <div class="vendor-header gray">
+      <span class="vendor-name">Infor CloudSuite</span>
+      <span class="vendor-tag">🌐 Enterprise Industry-Specific &nbsp;|&nbsp; <a href="https://www.infor.com" style="color:white">infor.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">$150–$300</span><span class="price-unit">/user/mes (odhad)</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Enterprise manufacturing, zdravotníctvo, distribúcia, food & beverage</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>AWS-hosted SaaS, hybrid</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Hĺbková vertikálna špeciácia (food, fashion, aerospace), Coleman AI platform, multi-tenant SaaS na AWS, vlastnený Koch Industries</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Slabšie SME riešenia, komplexný onboarding, menší ekosystém partnerov vs SAP/MS</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Infor Coleman AI rozšírenie do supply chain; Infor OS platform update; partnerstvá pre ESG reporting modul
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Priamy overlap v manufacturing/food segmente — Infor je benchmark pre výrobné firmy. ERI OS môže cieliť na firmy ktoré nie sú dosť veľké pre Infor.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 2: US/GLOBAL MID-MARKET ERP -->
+<!-- ================================================================ -->
+<div class="section" id="s2">
+  <div class="section-title">2. US/Global Mid-Market ERP</div>
+  <div class="section-subtitle">Primárna konkurenčná zóna ERI OS · 50–500 zamestnancov · Rýchlejšia implementácia · Nižšia TCO</div>
+
+  <!-- NetSuite -->
+  <div class="vendor-card">
+    <div class="vendor-header">
+      <span class="vendor-name">Oracle NetSuite</span>
+      <span class="vendor-tag">⭐ Mid-Market #1 Global &nbsp;|&nbsp; <a href="https://www.netsuite.com" style="color:white">netsuite.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">od $99</span><span class="price-unit">/user/mes + base license $999/mes</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Mid-market (50–1000 zam.), e-commerce, SaaS firmy, distribúcia, services</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>Pure SaaS, 37 000+ zákazníkov v 200+ krajinách</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Najširšia adoptácia v mid-markete, silný e-commerce + omnichannel, financials + CRM + inventory v jednom, Gartner Leader, rýchla implementácia (3–6 mes.)</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Bez integrovaného hardware/POS, slabší výrobný modul, cena môže rásť s modulmi, US-centric UX, slabá CEE lokalizácia</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> NetSuite AI — generatívne AI pre inventory forecasting a financial close; NetSuite Analytics Warehouse (data lake integration); rozšírenie NetSuite for Retail; akvizícia nástrojov pre B2B commerce
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Hlavný benchmark pre ERI OS globálna pozícia. NetSuite nemá hardware — ERI OS s integrovaným terminálom/skenerom je náš USP. NetSuite slabá v CEE lokalizácii = príležitosť pre ERI OS na SK/CZ trhu.
+      </div>
+    </div>
+  </div>
+
+  <!-- Business Central -->
+  <div class="vendor-card">
+    <div class="vendor-header accent">
+      <span class="vendor-name">Microsoft Dynamics 365 Business Central</span>
+      <span class="vendor-tag">⭐ SME/Mid-Market MS &nbsp;|&nbsp; <a href="https://dynamics.microsoft.com/business-central" style="color:white">microsoft.com/bc</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">$80</span><span class="price-unit">/user/mes Essentials | $110 Premium | $8 Team</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>SME a lower mid-market (10–500 zam.), retail, distribúcia, light manufacturing</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>SaaS (online), on-premise, hybrid — cez MS partner sieť</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Najsilnejšia integrácia s MS Office 365, Teams, Power BI; Copilot AI natívne; silná partnerská sieť (vrátane Seyfor SK/CZ); cenovo dostupné; AppSource marketplace s 3000+ rozšíreniami</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Implementácia stojí €30K–€100K+, závislosť na MS partneroch, slabší manufacturing vs SAP/Epicor, všetci useri musia byť na rovnakom tieri</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> BC Copilot pre natural language reporting, inventory suggestions, bank reconciliation AI; BC 2026 Wave 1 — rozšírenia pre e-shop integráciu a omnichannel; cena navýšená od 1.11.2026 (prvé navýšenie za 5 rokov); Seyfor na SK/CZ ako hlavný distribútor
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Priamy konkurent na SK/CZ mid-market! Seyfor predáva BC pre podobný segment. ERI OS výhody: integrovaný hardware, bez zložitej implementácie cez poradcov, nižšia TCO pre výrobné prevádzky s fyzickým tovarom.
+      </div>
+    </div>
+  </div>
+
+  <!-- Epicor -->
+  <div class="vendor-card">
+    <div class="vendor-header gray">
+      <span class="vendor-name">Epicor Kinetic (ERP 10)</span>
+      <span class="vendor-tag">🏭 Manufacturing Mid-Market &nbsp;|&nbsp; <a href="https://www.epicor.com" style="color:white">epicor.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">$175–$250</span><span class="price-unit">/user/mes (odhad, neverejné)</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Manufacturing mid-market (50–500 zam.), automotive parts, electronics, food</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>Cloud (Epicor Cloud), on-premise, SaaS</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Najsilnejší manufacturing ERP v mid-market (BOM, MRP, MES, shop floor), Industry 4.0 prepojenie, IoT ready, silný pre discrete manufacturing</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Slabý retail/POS, UI zastarané v niektorých moduloch, CEE prítomnosť obmedzená</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Epicor Kinetic rebrand + UI overhaul; Epicor AI Assist pre shop floor; rozšírenie Epicor Grow Suite pre SME; akvizícia Troposair (IoT manufacturing)
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Kľúčový benchmark pre výrobný segment. ERI OS musí vedieť pokryť základný MRP/BOM alebo jasne povedať na čom sme. Epicor je too complex a too US-centric pre SK/CZ SME.
+      </div>
+    </div>
+  </div>
+
+  <!-- Acumatica -->
+  <div class="vendor-card">
+    <div class="vendor-header accent">
+      <span class="vendor-name">Acumatica Cloud ERP</span>
+      <span class="vendor-tag">☁️ Cloud-First SME/Mid &nbsp;|&nbsp; <a href="https://www.acumatica.com" style="color:white">acumatica.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">od ~$1,800</span><span class="price-unit">/mes (SaaS, cena podľa compute resources, nie per-user!)</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>SME a mid-market (20–200 zam.), distribúcia, retail, light manufacturing, construction</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>SaaS, private cloud, on-premise — unikátny consumption-based pricing</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Bez per-user licenčného poplatku (pridáte users bez extra ceny), moderné UI, API-first architektúra, silné pre retail + distribúcia, G2 Leader</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Minimálne mesačné náklady $1,800+, slabšia európska prítomnosť, CEE lokalizácia chýba</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Acumatica 2025R2 — AI-powered cash flow forecasting; Native eCommerce B2B portal; rozšírenie pre Construction ERP segment; partnerstvo s AWS Marketplace
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Zaujímavý model — pricing bez per-user je inovatívny. ERI OS by mal premyslieť pricing model pre prevádzky kde je veľa light-users (pracovníci skladu).
+      </div>
+    </div>
+  </div>
+
+  <!-- IFS -->
+  <div class="vendor-card">
+    <div class="vendor-header gray">
+      <span class="vendor-name">IFS Cloud</span>
+      <span class="vendor-tag">🏭 Manufacturing/Aerospace/Defense &nbsp;|&nbsp; <a href="https://www.ifs.com" style="color:white">ifs.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">$100–$200</span><span class="price-unit">/user/mes (odhad, enterprise kontrakty)</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Enterprise/mid-market, aerospace, defense, energy, manufacturing (asset-heavy)</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>SaaS, on-premise, hybrid — silný CEE presence (švédsky pôvod)</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Najsilnejší pre asset management + FSM (Field Service Management), silné v Škandinávii a CEE, industry-specific vertikály, IFS.ai platforma</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Slabší retail/POS, menšia partnerská sieť vs SAP/MS, relatívne nízka brand awareness v CEE</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> IFS.ai rozšírenie (generatívne AI pre maintenance, scheduling); IFS Cloud 2025 R1/R2 updates; rozšírenie pre utilities a renewable energy vertikálu; prítomnosť na SK/CZ trhu cez lokálnych partnerov
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> IFS sa nezaoberá SME ani retail/gastro. Minimálny priamy overlap — skôr benchmark pre manufacturing moduly.
+      </div>
+    </div>
+  </div>
+
+  <!-- Odoo -->
+  <div class="vendor-card">
+    <div class="vendor-header green">
+      <span class="vendor-name">Odoo 18</span>
+      <span class="vendor-tag">🌍 Open-Source / SME Global &nbsp;|&nbsp; <a href="https://www.odoo.com" style="color:white">odoo.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena (USA)</label>
+          <p><span class="price-big">$31.10</span><span class="price-unit">/user/mes Standard (ročne) | $46.80 Custom | Community FREE</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>SME (5–500 zam.), všetky segmenty — manufacturing, retail, gastro, services, e-commerce</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>Odoo.sh cloud, on-premise, community self-hosted — 7M+ používateľov globálne</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>70+ integrovaných modulov (ERP, CRM, POS, e-commerce, účtovníctvo, HR), open-source Community verzia zadarmo, najnižšia cena v triede, aktívna komunita, AI invoice scanning</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Bez integrovaného hardware, Community verzia bez podpory, implementácia si vyžaduje partnera, výkon pri väčšom objeme dát, UI méně enterprise-grade</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Odoo 18 release — AI document parsing, generatívne AI pre email drafting v CRM, vylepšený POS modul; Odoo Studio no-code rozšírenia; Odoo Community editions rastú na popularite v CZ ako lacná alternatíva k ABRA/Money
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Najväčší "value competitor" — zákazník si môže povedať "prečo nekúpiť Odoo za $0 Community?". ERI OS odpoveď: integrovaný hardware, SK/CZ lokalizácia, podpora v slovenčine, bez nutnosti partnera na implementáciu.
+      </div>
+      <div class="risk-box">
+        <strong>Riziko:</strong> Odoo Community FREE + integrácia s lacným hardware je náš najnebezpečnejší konkurent v cenovej kategórii pre tech-savvy zákazníkov.
+      </div>
+    </div>
+  </div>
+
+  <!-- Sage -->
+  <div class="vendor-card">
+    <div class="vendor-header gray">
+      <span class="vendor-name">Sage X3 / Sage Intacct</span>
+      <span class="vendor-tag">💼 SME/Mid UK/Global &nbsp;|&nbsp; <a href="https://www.sage.com" style="color:white">sage.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">$90–$200</span><span class="price-unit">/user/mes (X3 odhad) | Intacct: $400+/mes base</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>SME–Mid-market, Sage Intacct: mid-market financie; Sage X3: distribúcia + manufacturing</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>SaaS, on-premise (X3), cloud-first (Intacct)</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Silné UK a európske lokalizácie, Sage Copilot AI, established brand v UK/IE, Sage Intacct best-in-class pre non-profit a SaaS revenue recognition</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Slabšia prítomnosť v CEE, fragmentovaný produktový portfólio (Sage 50, 100, 200, X3, Intacct), bez hardware</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Sage Copilot AI pre financie; Sage Network (B2B transaction network); razantná push na Sage Intacct pre mid-market vs NetSuite
+      </div>
+    </div>
+  </div>
+
+  <!-- Syspro -->
+  <div class="vendor-card">
+    <div class="vendor-header gray">
+      <span class="vendor-name">SYSPRO ERP</span>
+      <span class="vendor-tag">🏭 Manufacturing SME &nbsp;|&nbsp; <a href="https://www.syspro.com" style="color:white">syspro.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Cena</label>
+          <p><span class="price-big">~$99–$199</span><span class="price-unit">/user/mes (odhad)</span></p>
+        </div>
+        <div class="info-block">
+          <label>Cielový segment</label>
+          <p>Manufacturing + distribúcia SME (20–200 zam.) — food, electronics, automotive</p>
+        </div>
+        <div class="info-block">
+          <label>Deployment</label>
+          <p>Cloud, on-premise, hybrid — AI-ready architektúra</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Špecializovaný manufacturing ERP pre SME, BOM, MRP, WIP tracking, SYSPRO AI pre demand planning, nižšia cena vs Epicor</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Bez retail/POS, slabá CEE prítomnosť, menší ekosystém</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 3: EURÓPSKE ERP -->
+<!-- ================================================================ -->
+<div class="section" id="s3">
+  <div class="section-title">3. Európske ERP systémy</div>
+  <div class="section-subtitle">Primárne pre DACH, BeNeLux, Škandináviu, Poľsko — relevantné ako benchmark pre CEE expanziu ERI OS</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Vendor</th>
+        <th>Krajina</th>
+        <th>Segment</th>
+        <th>Cena (odhad)</th>
+        <th>Hlavné trhy</th>
+        <th>Silná stránka</th>
+        <th>CEE prítomnosť</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>AFAS Software</strong> <br><small><a href="https://www.afas.nl">afas.nl</a></small></td>
+        <td>🇳🇱 NL</td>
+        <td><span class="tag tag-midmarket">Mid-market</span></td>
+        <td>€50–€100/user/mes</td>
+        <td>Holandsko, Belgicko</td>
+        <td>All-in-one (ERP + HR + CRM), silný NL lokalizácia, moderné UI</td>
+        <td>❌ Žiadna</td>
+      </tr>
+      <tr>
+        <td><strong>Exact ERP</strong> <br><small><a href="https://www.exact.com">exact.com</a></small></td>
+        <td>🇳🇱 NL</td>
+        <td><span class="tag tag-smb">SME</span></td>
+        <td>€40–€80/user/mes</td>
+        <td>NL, BE, DE, UK</td>
+        <td>SME accounting + ERP, Exact Online cloud, silná SME penetrácia</td>
+        <td>⚠️ Slabá</td>
+      </tr>
+      <tr>
+        <td><strong>Visma</strong> <br><small><a href="https://www.visma.com">visma.com</a></small></td>
+        <td>🇳🇴 NO</td>
+        <td><span class="tag tag-smb">SME</span><span class="tag tag-midmarket">Mid</span></td>
+        <td>€30–€100/user/mes</td>
+        <td>Škandinávie, NL, Baltic</td>
+        <td>Nordic leader SME ERP, 1M+ zákazníkov, silný payroll + accounting</td>
+        <td>⚠️ Baltic, nie SK/CZ</td>
+      </tr>
+      <tr>
+        <td><strong>Cegid</strong> <br><small><a href="https://www.cegid.com">cegid.com</a></small></td>
+        <td>🇫🇷 FR</td>
+        <td><span class="tag tag-midmarket">Mid-market</span></td>
+        <td>€60–€150/user/mes</td>
+        <td>Francúzsko, Španielsko, Maroko</td>
+        <td>Retail ERP + POS + fashion/luxury vertikály, silný Cegid Retail cloud</td>
+        <td>⚠️ Slabá</td>
+      </tr>
+      <tr>
+        <td><strong>Unit4</strong> <br><small><a href="https://www.unit4.com">unit4.com</a></small></td>
+        <td>🇳🇱 NL</td>
+        <td><span class="tag tag-midmarket">Mid-market</span></td>
+        <td>€60–€120/user/mes</td>
+        <td>EMEA, non-profit, education, services</td>
+        <td>People-centric ERP, silný pre professional services, ERPx cloud platform</td>
+        <td>✅ Prítomný (SK/CZ cez partnerov)</td>
+      </tr>
+      <tr>
+        <td><strong>Comarch ERP</strong> <br><small><a href="https://www.comarch.com">comarch.com</a></small></td>
+        <td>🇵🇱 PL</td>
+        <td><span class="tag tag-smb">SME</span><span class="tag tag-midmarket">Mid</span></td>
+        <td>Podľa modulu, SaaS od €30</td>
+        <td>Poľsko, CZ, SK, CEE, MEA</td>
+        <td>CEE leader, Comarch ERP Optima (SK/CZ), lokalizácia, EDI, telekom</td>
+        <td>✅ Silná (SK/CZ Optima aktívne)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="impact-box">
+    <strong>Dopad na ERI OS — Európa:</strong> Z európskych ERP systémov je pre ERI OS relevantný primárne Comarch (silný v CZ/SK) a Unit4 (prítomný). Ostatné (AFAS, Exact, Visma, Cegid) nám CEE trh neoberajú. Pri expanzii do DACH bude treba sledovať AFAS a Exact ako regionálnych lídrov.
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 4: SK/CZ ERP -->
+<!-- ================================================================ -->
+<div class="section" id="s4">
+  <div class="section-title">4. SK/CZ ERP systémy</div>
+  <div class="section-subtitle">Primárna konkurenčná zóna pre sekundárny trh ERI OS · Lokálne riešenia s regulačnou výhodou</div>
+
+  <!-- Helios -->
+  <div class="vendor-card">
+    <div class="vendor-header">
+      <span class="vendor-name">Helios ERP (Asseco Solutions)</span>
+      <span class="vendor-tag">🇨🇿🇸🇰 CZ/SK Mid/Enterprise &nbsp;|&nbsp; <a href="https://www.helios.eu" style="color:white">helios.eu</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Varianty</label>
+          <p><strong>Helios iNuvio</strong> (cloud SME) · <strong>Helios Orange</strong> (mid) · <strong>Helios Green</strong> (enterprise)</p>
+        </div>
+        <div class="info-block">
+          <label>Cena</label>
+          <p>iNuvio: od ~€30/user/mes · Orange: projekt, od ~€5K implementácia · Green: enterprise</p>
+        </div>
+        <div class="info-block">
+          <label>Segment</label>
+          <p>SME → Enterprise, všetky odvetvia: výroba, obchod, služby, distribúcia</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Najsilnejší established ERP brand v CZ, komplexné pokrytie (financie, HR, výroba, logistika), dlhá história, partnerská sieť, CZ/SK legislatíva natívne, Helios iNuvio cloud modernizácia</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Starý kód v jadre (Orange/Green), implementácia drahá a dlhá, UI/UX zastarané, slabý POS/retail modul, bez hardware integrácie</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Helios iNuvio cloud platforma rozšírenie — nové moduly pre e-commerce a B2B portál; Asseco Solutions CZ partnerstvo s Microsoft (BC alternatíva); modernizácia UI v iNuvio verzii; rozšírenie do výrobného sektoru cez Helios MES prepojenie
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Helios je legacy leader — zákazníci ho poznajú, dôverujú mu, ale sú nespokojní s UX a cenami implementácie. ERI OS príležitosť: moderné UI, rýchly onboarding, hardware integrácia = "Helios pre 21. storočie" pre firmy 10–100 zam.
+      </div>
+    </div>
+  </div>
+
+  <!-- ABRA -->
+  <div class="vendor-card">
+    <div class="vendor-header accent">
+      <span class="vendor-name">ABRA Software (ABRA Gen + ABRA Flexi)</span>
+      <span class="vendor-tag">🇨🇿 CZ Cloud Pioneer · SelectLine Group od 27.2.2026 &nbsp;|&nbsp; <a href="https://www.abra.eu" style="color:white">abra.eu</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Produkty</label>
+          <p><strong>ABRA Gen</strong> — komplexný ERP pre mid-market<br><strong>ABRA Flexi</strong> — cloud ERP pre SME<br><strong>ABRA Flores</strong> — výroba/manufacturing</p>
+        </div>
+        <div class="info-block">
+          <label>Cena (Flexi)</label>
+          <p>od ~€29/user/mes (cloud) · Gen: projektová cena od €8K–€50K implementácia</p>
+        </div>
+        <div class="info-block">
+          <label>Vlastník od 27.2.2026</label>
+          <p><strong>SelectLine Group (DE)</strong> — európska ERP skupina, expanzia do CEE</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Cloud ERP pionier v CZ, ABRA Flexi najmodernejší cloud UI v SK/CZ ERP triede, silný manufacturing (Gen + Flores), MES prepojenie, nové: partnerstvo s PHARIS pre MES, člen ČLA (logistika)</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Akvizia SelectLine prináša neistotu o strategickom smerovaní, Gen je starší kód, Flexi slabší na väčšie výrobné firmy, bez POS/hardware</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong><br>
+        📌 <strong>27.2.2026:</strong> ABRA Software vstúpila do SelectLine Group (DE) — európska konsolidácia ERP, strategická expanzia CEE<br>
+        📌 ABRA Flexi 2026.3.13 — najnovší release s AI funkcionalitami<br>
+        📌 Partnerstvo s PHARIS (MES) — silnejšie prepojenie ERP + výrobné systémy<br>
+        📌 Člen Českej logistickej asociácie — rozšírenie do logistiky/WMS
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> ABRA Flexi je najbližší slovensko-český cloud ERP konkurent. SelectLine akvizícia = väčšie investície, väčší tím = hrozba rastu. ERI OS USP: integrovaný hardware + POS vrstva + rýchlejšia adopcia pre gastro/retail firmy kde ABRA nie je silná.
+      </div>
+    </div>
+  </div>
+
+  <!-- Seyfor/Money ERP/Vario/Byznys -->
+  <div class="vendor-card">
+    <div class="vendor-header">
+      <span class="vendor-name">Seyfor Group — Money ERP · Vario · Byznys ERP · Money S3</span>
+      <span class="vendor-tag">🇨🇿🇸🇰 CZ/SK SME Dominant &nbsp;|&nbsp; <a href="https://www.seyfor.com" style="color:white">seyfor.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Skupina</label>
+          <p>2 200+ zamestnancov, 42 krajín, vlastní: Money S3, Money ERP, Vario Online, Byznys ERP, Flores R2, partnerstvo MS Dynamics 365 BC</p>
+        </div>
+        <div class="info-block">
+          <label>Money ERP</label>
+          <p><strong>11 000 používateľov</strong> v 1 300 firmách CZ+SK · cloud + on-premise · od ~€15/user/mes</p>
+        </div>
+        <div class="info-block">
+          <label>Vario Online</label>
+          <p>Moderný cloud ERP, v6 — najnovší produkt skupiny, API-first, pre SME 10–100 zam.</p>
+        </div>
+      </div>
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Silné stránky</label>
+          <p>Dominantný predaj v CZ/SK SME segmente, najširšia distribučná sieť, CZ/SK legislatíva, DPH, mzdy, skladová evidencia, Vario je moderná platforma, Money ERP pokrýva skutočné ERP potreby</p>
+        </div>
+        <div class="info-block">
+          <label>Slabé stránky</label>
+          <p>Fragmentovaný portfólio (4+ produkty), Money S3 je "účtovníctvo" nie ERP, Vario relatívne nový a neoverený vo väčších firmách, bez POS/hardware</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Seyfor ako certifikovaný MS Dynamics 365 BC partner pre CZ/SK — predáva BC vedľa vlastných produktov; Vario Online 6 release s rozšírenými API; Money ERP rastie na 11K users; expanzia Seyfor do ďalších CEE krajín (Rumunsko, Maďarsko)
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Seyfor je náš PRIAMY konkurent na SK/CZ trhu — cieli na rovnaký segment, má distribučnú sieť, predáva aj Dynamics BC. ERI OS odlíšenie: hardware integrácia, moderné POS, rýchlejší onboarding, špecializácia na prevádzkovo náročné firmy (sklad, gastro, výroba) kde Seyfor Money/Vario sú slabé.
+      </div>
+    </div>
+  </div>
+
+  <!-- Pohoda a KROS -->
+  <div class="vendor-card">
+    <div class="vendor-header gray">
+      <span class="vendor-name">Pohoda (Stormware) &nbsp;·&nbsp; KROS</span>
+      <span class="vendor-tag">🇨🇿🇸🇰 Accounting SW (nie ERP) &nbsp;|&nbsp; <a href="https://www.stormware.cz" style="color:white">stormware.cz</a> &nbsp;·&nbsp; <a href="https://www.kros.sk" style="color:white">kros.sk</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Pohoda (Stormware)</label>
+          <p>Najrozšírenejší accounting SW v CZ, 190K+ firiem, Windows desktop + Pohoda E1 cloud. <strong>Nie je ERP</strong> — pokrýva účtovníctvo, fakturácia, DPH, mzdy. Cena: od ~€10/user/mes (cloud) alebo jednorazová licencia. Stormware = Seyfor dcéra.</p>
+        </div>
+        <div class="info-block">
+          <label>KROS (iKelp, Omega, Olymp)</label>
+          <p>SK leader v účtovníctve, mzdovom SW, iKelp POS pre gastro/retail. <strong>Nie je ERP</strong> — primárne accounting + mzdy. iKelp POS je ERI OS priamy POS competitor na SK trhu. Cena: KROS Omega od €5/mes, iKelp od €20/mes.</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Pohoda E1 cloud rozširovanie — online verzia berie zákazníkov z desktop verzie; KROS iKelp POS modernizácia — nové funkcie pre gastro; oba produkty bez skutočnej ERP vrstvy (výroba, WMS, komplexná logistika)
+      </div>
+      <div class="impact-box">
+        <strong>Dopad na ERI OS:</strong> Pohoda a KROS sú v "účtovníckom" súboji, nie ERP. ERI OS nechce bojovať v tejto kategórii. KROS iKelp je však priamy POS competitor na SK — treba sledovať ich features a ceny.
+      </div>
+    </div>
+  </div>
+
+  <!-- Comarch ERP Optima -->
+  <div class="vendor-card">
+    <div class="vendor-header gray">
+      <span class="vendor-name">Comarch ERP Optima (CZ/SK)</span>
+      <span class="vendor-tag">🇵🇱 Poľský hráč v CEE &nbsp;|&nbsp; <a href="https://www.comarch.cz" style="color:white">comarch.cz</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Popis</label>
+          <p>Poľský ERP líder, prítomný v CZ/SK cez Comarch ERP Optima — pokrýva obchod, výrobu, účtovníctvo, logistiku. Silná pozícia v PL, rastúca v CZ. B2B EDI integrácie.</p>
+        </div>
+        <div class="info-block">
+          <label>Cena / Segment</label>
+          <p>Od ~€30/user/mes · Segment: SME + lower mid-market · Výhoda: CEE legislatívne pokrytie PL/CZ/SK naraz</p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <strong>Aktivity 2025–2026:</strong> Comarch ERP Optima 2025 release — AI-asistovaná fakturácia, integrácia e-commerce platformy; Comarch EDI rozšírenie pre CZ retail reťazce
+      </div>
+    </div>
+  </div>
+
+  <!-- ERPNext -->
+  <div class="vendor-card">
+    <div class="vendor-header green">
+      <span class="vendor-name">ERPNext / Frappe</span>
+      <span class="vendor-tag">🌍 Open-Source CZ rastúca popularita &nbsp;|&nbsp; <a href="https://erpnext.com" style="color:white">erpnext.com</a></span>
+    </div>
+    <div class="vendor-body">
+      <div class="vendor-grid">
+        <div class="info-block">
+          <label>Popis</label>
+          <p>Open-source ERP (Python/JavaScript), zadarmo Community, hosting od ~$50/mes. Populárny globálne, v CZ rastúce adopcie v 2025–2026 ako lacná alternatíva. Pokrýva: účtovníctvo, sklad, výroba (BOM, MRP), nákup, predaj, HR.</p>
+        </div>
+        <div class="info-block">
+          <label>Riziko pre ERI OS</label>
+          <p>Tech-savvy zákazník si nainštaluje ERPNext zadarmo + lacný hardware = nulové licenčné náklady. Rizikový segment: IT firmy, startupy, menší výrobcovia s vlastným IT tímom.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 5: MATICA FUNKCIÍ -->
+<!-- ================================================================ -->
+<div class="section" id="s5">
+  <div class="section-title">5. Matica funkcií — Porovnanie systémov</div>
+  <div class="section-subtitle">✅ Áno / plne · ⚠️ Čiastočne / addon · ❌ Nie · 🔷 Náš USP</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Funkcia / Systém</th>
+        <th>ERI OS 🔷</th>
+        <th>NetSuite</th>
+        <th>Business Central</th>
+        <th>Odoo 18</th>
+        <th>ABRA Flexi</th>
+        <th>Money ERP</th>
+        <th>Helios iNuvio</th>
+        <th>SAP B.One</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-eri">
+        <td><strong>Integrovaný POS Hardware</strong></td>
+        <td class="check">✅ 🔷</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️</td>
+      </tr>
+      <tr>
+        <td>Účtovníctvo / Financie</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+      </tr>
+      <tr>
+        <td>Skladové hospodárstvo (WMS)</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+      </tr>
+      <tr>
+        <td>Výroba / MRP / BOM</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+      </tr>
+      <tr>
+        <td>E-commerce integrácia</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️</td>
+      </tr>
+      <tr>
+        <td>CRM modul</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+      </tr>
+      <tr>
+        <td>Mzdová agenda / HR</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+      </tr>
+      <tr>
+        <td>SK/CZ legislatíva natívne</td>
+        <td class="check">✅</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️ partner</td>
+        <td class="cross">❌</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️ partner</td>
+      </tr>
+      <tr>
+        <td>Cloud-native architektúra</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+      </tr>
+      <tr>
+        <td>Gastro / Kitchen Display (KDS)</td>
+        <td class="check">✅ 🔷</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+      </tr>
+      <tr>
+        <td>Retail POS (Touch screen)</td>
+        <td class="check">✅ 🔷</td>
+        <td class="partial">⚠️ addon</td>
+        <td class="partial">⚠️ addon</td>
+        <td class="check">✅</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️ addon</td>
+      </tr>
+      <tr>
+        <td>Offline mód (POS bez internetu)</td>
+        <td class="check">✅ 🔷</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+      </tr>
+      <tr>
+        <td>AI / Copilot funkcie</td>
+        <td class="partial">⚠️ roadmap</td>
+        <td class="check">✅</td>
+        <td class="check">✅ Copilot</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="cross">❌</td>
+        <td class="cross">❌</td>
+        <td class="partial">⚠️</td>
+      </tr>
+      <tr>
+        <td>Mobile app (iOS/Android)</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+      </tr>
+      <tr>
+        <td>API / Integrácie</td>
+        <td class="check">✅ REST API</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="check">✅</td>
+      </tr>
+      <tr>
+        <td>Implementácia &lt;1 mesiac</td>
+        <td class="check">✅ 🔷</td>
+        <td class="cross">❌ 3–6 mes</td>
+        <td class="cross">❌ 2–6 mes</td>
+        <td class="partial">⚠️ 1–3 mes</td>
+        <td class="partial">⚠️ 1–3 mes</td>
+        <td class="partial">⚠️</td>
+        <td class="partial">⚠️</td>
+        <td class="cross">❌ 3–12 mes</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">* ERI OS hodnotenia vychádzajú z verejne dostupných informácií o ERI OS a interných znalostí. Niektoré funkcie môžu byť na roadmape — treba interné overenie.</p>
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 6: PRICING PREHĽAD -->
+<!-- ================================================================ -->
+<div class="section" id="s6">
+  <div class="section-title">6. Pricing prehľad — Zoradené od najlacnejšieho</div>
+  <div class="section-subtitle">Mesačná cena na používateľa (SaaS/cloud verzia) · Máj 2026</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Systém</th>
+        <th>Cena /user/mes</th>
+        <th>Model</th>
+        <th>Trh</th>
+        <th>Zdroj / Overenie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>ERPNext Community</strong></td>
+        <td><strong>€0</strong> (self-hosted)</td>
+        <td>Open-source, self-hosted</td>
+        <td>Global</td>
+        <td>✅ Overené — erpnext.com</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Odoo Community</strong></td>
+        <td><strong>€0</strong> (self-hosted)</td>
+        <td>Open-source, self-hosted</td>
+        <td>Global</td>
+        <td>✅ Overené — odoo.com</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>KROS iKelp</strong></td>
+        <td><strong>od ~€20</strong></td>
+        <td>SaaS, POS-focused</td>
+        <td>SK</td>
+        <td>⚠️ Odhad — overenie potrebné</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Money S3 / Pohoda E1</strong></td>
+        <td><strong>od ~€15–€25</strong></td>
+        <td>SaaS accounting</td>
+        <td>CZ/SK</td>
+        <td>⚠️ Odhad — overenie potrebné</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Odoo Standard (USA)</strong></td>
+        <td><strong>$31.10</strong></td>
+        <td>SaaS, ročné</td>
+        <td>Global</td>
+        <td>✅ Overené — odoo.com/pricing</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>Money ERP (Seyfor)</strong></td>
+        <td><strong>od ~€15–€40</strong></td>
+        <td>Cloud/On-premise</td>
+        <td>CZ/SK</td>
+        <td>⚠️ Odhad — overenie potrebné</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><strong>ABRA Flexi</strong></td>
+        <td><strong>od ~€29</strong></td>
+        <td>SaaS cloud</td>
+        <td>CZ/SK</td>
+        <td>⚠️ Odhad — overenie potrebné</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><strong>Helios iNuvio</strong></td>
+        <td><strong>od ~€30</strong></td>
+        <td>Cloud SaaS</td>
+        <td>CZ/SK</td>
+        <td>⚠️ Odhad — overenie potrebné</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td><strong>Comarch ERP Optima</strong></td>
+        <td><strong>od ~€30</strong></td>
+        <td>SaaS / on-premise</td>
+        <td>CZ/SK/PL</td>
+        <td>⚠️ Odhad</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td><strong>MS Dynamics 365 BC Essentials</strong></td>
+        <td><strong>$80</strong></td>
+        <td>SaaS (Azure)</td>
+        <td>Global</td>
+        <td>✅ Overené — microsoft.com</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td><strong>MS Dynamics 365 BC Premium</strong></td>
+        <td><strong>$110</strong></td>
+        <td>SaaS (Azure)</td>
+        <td>Global</td>
+        <td>✅ Overené — microsoft.com</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td><strong>Oracle NetSuite</strong></td>
+        <td><strong>od $99 + $999/mes base</strong></td>
+        <td>SaaS</td>
+        <td>Global</td>
+        <td>✅ Overené — netsuite.com</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td><strong>SAP S/4HANA Public Cloud</strong></td>
+        <td><strong>$180</strong></td>
+        <td>SaaS (RISE with SAP)</td>
+        <td>Global Enterprise</td>
+        <td>✅ Overené — erpresearch.com</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td><strong>MS Dynamics 365 Finance</strong></td>
+        <td><strong>$180</strong></td>
+        <td>SaaS (Azure)</td>
+        <td>Enterprise</td>
+        <td>✅ Overené — microsoft.com</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td><strong>Oracle ERP Cloud (Fusion)</strong></td>
+        <td><strong>$175–$625</strong></td>
+        <td>SaaS (OCI)</td>
+        <td>Enterprise</td>
+        <td>⚠️ Odhad — citát OCI</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">Ceny SK/CZ lokálnych riešení (Money, Helios, ABRA, KROS) sú odhady — presné cenníky nie sú verejne dostupné. Odporúčam priamy cenový audit.</p>
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 7: AKTIVITY 2025-2026 -->
+<!-- ================================================================ -->
+<div class="section" id="s7">
+  <div class="section-title">7. Mapa aktivít a noviniek 2025–2026</div>
+  <div class="section-subtitle">Chronologicky · Overené cez web search · Zdroj uvedený</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Dátum</th>
+        <th>Vendor</th>
+        <th>Udalosť / Aktivita</th>
+        <th>Typ</th>
+        <th>Dopad na ERI OS</th>
+        <th>Zdroj</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="update-log-row">
+        <td>2024 Q4</td>
+        <td>Microsoft</td>
+        <td>BC Copilot for Finance GA — AI reconciliation, natural language reporting, inventory suggestions</td>
+        <td><span class="tag tag-erp">Feature</span></td>
+        <td>⚠️ Zvyšuje latvu — treba ERI OS AI roadmap</td>
+        <td><a href="https://dynamics.microsoft.com">microsoft.com</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2025 Q1</td>
+        <td>Oracle NetSuite</td>
+        <td>NetSuite Analytics Warehouse — data lake integrácia, pokročilé reporting</td>
+        <td><span class="tag tag-erp">Feature</span></td>
+        <td>🔵 NetSuite posilňuje analytics — ERI OS musí mať dashboard</td>
+        <td><a href="https://www.netsuite.com">netsuite.com</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2025 Q1</td>
+        <td>Odoo</td>
+        <td>Odoo 18 release — AI document parsing, generatívne AI v CRM, vylepšený POS</td>
+        <td><span class="tag tag-erp">Release</span></td>
+        <td>🔴 Odoo FREE + POS zlepšenia = väčší tlak na SME segment</td>
+        <td><a href="https://www.odoo.com">odoo.com</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2025 Q2</td>
+        <td>ABRA Software</td>
+        <td>Partnerstvo s PHARIS — prepojenie ERP s MES pre výrobné firmy</td>
+        <td><span class="tag tag-erp">Partnership</span></td>
+        <td>⚠️ ABRA posilňuje manufacturing — naša príležitosť sa zužuje</td>
+        <td><a href="https://www.abra.eu">abra.eu</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2025 Q3</td>
+        <td>Epicor</td>
+        <td>Epicor AI Assist pre shop floor — AI odporúčania pre operátorov na výrobnej linke</td>
+        <td><span class="tag tag-erp">Feature</span></td>
+        <td>🔵 AI na shop floor — pre ERI OS relevantné v budúcnosti</td>
+        <td><a href="https://www.epicor.com">epicor.com</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2025 Q4</td>
+        <td>SAP</td>
+        <td>SAP Joule AI plne integrovaný do S/4HANA — conversational AI pre ERP</td>
+        <td><span class="tag tag-erp">Feature</span></td>
+        <td>🔵 Enterprise standard — ERI OS AI roadmap nevyhnutná</td>
+        <td><a href="https://www.sap.com">sap.com</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2026 Q1</td>
+        <td>Microsoft</td>
+        <td>BC 2026 Wave 1 — rozšírenie pre e-shop integráciu, omnichannel, AI inventory</td>
+        <td><span class="tag tag-erp">Release</span></td>
+        <td>⚠️ BC posilňuje retail — Seyfor bude predávať agresívnejšie</td>
+        <td><a href="https://dynamics.microsoft.com">microsoft.com</a></td>
+      </tr>
+      <tr class="update-log-row" style="background: #fff3e0;">
+        <td><strong>27.2.2026</strong></td>
+        <td><strong>ABRA Software</strong></td>
+        <td><strong>ABRA Software vstúpila do SelectLine Group (DE) — akvizícia európskou ERP skupinou</strong></td>
+        <td><span class="tag tag-enterprise">M&amp;A</span></td>
+        <td>🔴 VEĽKÁ UDALOSŤ — ABRA dostane európske investície a distribúciu</td>
+        <td><a href="https://www.abra.eu/abra-software-vstupem-do-skupiny-selectline-otevira-nove-prilezitosti-pro-rust-inovace-a-evropskou-spolupraci/">abra.eu</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2026 Q1</td>
+        <td>ABRA Software</td>
+        <td>ABRA Flexi 2026.3.13 — najnovší release, AI funkcie, rozšírenia</td>
+        <td><span class="tag tag-erp">Release</span></td>
+        <td>⚠️ ABRA Flexi sa modernizuje rýchlo</td>
+        <td><a href="https://www.abra.eu">abra.eu</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2026 Q1</td>
+        <td>Seyfor</td>
+        <td>Money ERP dosiahol 11 000 používateľov v 1 300 firmách CZ+SK</td>
+        <td><span class="tag tag-erp">Milestone</span></td>
+        <td>⚠️ Seyfor rastie — silná pozícia v našom target markete</td>
+        <td><a href="https://www.seyfor.com">seyfor.com</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2026 Q2</td>
+        <td>Microsoft</td>
+        <td>Oznámenie navýšenia cien BC od 1.11.2026 — prvé za 5 rokov; Essentials: $80, Premium: $110</td>
+        <td><span class="tag tag-erp">Pricing</span></td>
+        <td>✅ PRÍLEŽITOSŤ — nespokojní zákazníci s rastom cien = naša šanca</td>
+        <td><a href="https://msdynamicsworld.com">msdynamicsworld.com</a></td>
+      </tr>
+      <tr class="update-log-row">
+        <td>2026 Q2</td>
+        <td>Acumatica</td>
+        <td>Acumatica 2025R2 — AI cash flow forecasting, Native B2B eCommerce portál</td>
+        <td><span class="tag tag-erp">Release</span></td>
+        <td>🔵 Dobrý model pricing bez per-user — poučenie pre ERI OS</td>
+        <td><a href="https://www.acumatica.com">acumatica.com</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 8: DOPAD NA ERI OS -->
+<!-- ================================================================ -->
+<div class="section" id="s8">
+  <div class="section-title">8. Dopad na ERI OS — Positioning, príležitosti, riziká</div>
+  <div class="section-subtitle">Strategická syntéza pre ERI OS tím</div>
+
+  <div class="two-col">
+    <div>
+      <div class="impact-box" style="margin-bottom:16px;">
+        <strong>✅ Kde je ERI OS silnejší ako konkurencia</strong>
+        <br><br>
+        <strong>1. Integrovaný hardware + softvér:</strong> Žiadny z mid-market ERP (NetSuite, BC, Odoo, ABRA) nema vlastný integrovaný hardware. ERI OS je jediný hráč v segmente 10–200 zam. kde hardvér + ERP je jedna vec = menej bodov zlyhania, jednoduchšia podpora.
+        <br><br>
+        <strong>2. Gastro + Retail + ERP v jednom:</strong> Toast a Square sú POS, ABRA/Helios/Money sú ERP, NetSuite je cloud ERP — žiadny nepokrýva celú prevádzku od pokladne po sklad po účtovníctvo. ERI OS môže byť "the one system" pre multi-segmentové prevádzky.
+        <br><br>
+        <strong>3. SK/CZ natívna lokalizácia + rýchly onboarding:</strong> Enterprise ERP (NetSuite, SAP) majú slabú CEE lokalizáciu. ERI OS s natívnou SK/CZ legislatívou je rýchlejší na zapojenie ako akýkoľvek zahraničný systém.
+        <br><br>
+        <strong>4. Jednoduchosť implementácie:</strong> Business Central stojí €30K–€100K na implementáciu cez partnera. Helios Orange/Green: podobne. ERI OS cielia na "self-serve" alebo rýchlu asistovanú implementáciu — silný selling point.
+        <br><br>
+        <strong>5. Offline mód POS:</strong> Critická funkcia pre gastro/retail — žiadny cloud ERP nemá offline POS, ERI OS áno.
+      </div>
+    </div>
+    <div>
+      <div class="risk-box" style="margin-bottom:16px;">
+        <strong>🔴 Kde sme slabší / Riziká</strong>
+        <br><br>
+        <strong>1. ABRA SelectLine akvizícia (27.2.2026):</strong> ABRA dostane európske investície a distribúciu — zrýchli produktový vývoj. Treba sledovať každé 4–6 týždňov.
+        <br><br>
+        <strong>2. Odoo FREE Community:</strong> Pre tech-savvy zákazníka je Odoo Community zadarmo + vlastný hardware lacnejšia alternatíva. ERI OS musí ukázať hodnotu svojej integrácie a podpory.
+        <br><br>
+        <strong>3. Microsoft BC + Copilot AI:</strong> BC 2026 Wave 1 pridáva AI funkcie, e-commerce integrácie — Seyfor to bude agresívne predávať. AI je naša slabina ak ERI OS nemá jasnú AI roadmap.
+        <br><br>
+        <strong>4. Výrobný modul (MRP/BOM):</strong> Pre výrobné firmy ERI OS musí vedieť pokryť základný BOM a MRP alebo to jasne komunikovať ako "not yet". Epicor, BC, Odoo sú tu silné.
+        <br><br>
+        <strong>5. Seyfor dominancia SK/CZ distribúcie:</strong> Seyfor má 2200 zamestnancov a priamu predajnú sieť. ERI OS musí nájsť iný go-to-market (partneri, vertikálna špecializácia, direct sales pre gastro/retail reťazce).
+      </div>
+    </div>
+  </div>
+
+  <div class="vendor-card" style="border-color:#7b1fa2;">
+    <div class="vendor-header" style="background: linear-gradient(90deg, #7b1fa2, #1565c0);">
+      <span class="vendor-name">ERI OS — Odporúčaný Positioning Statement</span>
+      <span class="vendor-tag">Pre sales deck & marketing</span>
+    </div>
+    <div class="vendor-body">
+      <p style="font-size:16px; font-style:italic; color:#1a237e; line-height:1.7; padding:8px 0;">
+        "ERI OS je jediný moderný systém pre prevádzkovo náročné firmy, ktorý spája ERP, POS a vlastný hardware do jednej platformy — bez nutnosti zložitej implementácie, bez 5 rôznych systémov a bez enterprise cenovky. Pre firmy v gastronómii, retaili, výrobe a sklade, ktoré prerástli Excel a účtovníctvo, ale nechcú SAP."
+      </p>
+      <div class="divider"></div>
+      <div class="vendor-grid-3">
+        <div class="info-block">
+          <label>Vs. NetSuite / SAP / Oracle</label>
+          <p>10× nižšia TCO, integrovaný hardware, rýchla implementácia, SK/CZ lokalizácia natívne</p>
+        </div>
+        <div class="info-block">
+          <label>Vs. ABRA / Money / Helios</label>
+          <p>Moderné UI, POS vrstva, hardware integrácia, gastro/retail native, cloud-first</p>
+        </div>
+        <div class="info-block">
+          <label>Vs. Odoo FREE</label>
+          <p>Plug-and-play hardware, SK/CZ podpora v slovenčine, bez nutnosti IT tímu, SLA garantovaný</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update Log -->
+  <div style="margin-top:32px;">
+    <div style="font-size:14px; font-weight:700; color:var(--primary); margin-bottom:12px; border-bottom:2px solid var(--primary); padding-bottom:6px;">📋 Update Log — Riadky pre Tabuľku</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Dátum</th>
+          <th>Vendor</th>
+          <th>Typ</th>
+          <th>Zmena / Udalosť</th>
+          <th>Dopad ERI OS</th>
+          <th>Zdroj</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="update-log-row">
+          <td>27.2.2026</td>
+          <td>ABRA Software</td>
+          <td>M&amp;A</td>
+          <td>Vstup do SelectLine Group (DE) — európska ERP skupina</td>
+          <td>🔴 Hrozba — viac investícií do ABRA</td>
+          <td><a href="https://www.abra.eu/abra-software-vstupem-do-skupiny-selectline-otevira-nove-prilezitosti-pro-rust-inovace-a-evropskou-spolupraci/">abra.eu</a></td>
+        </tr>
+        <tr class="update-log-row">
+          <td>1.11.2026</td>
+          <td>Microsoft BC</td>
+          <td>Pricing</td>
+          <td>Navýšenie cien: Essentials $70→$80, Premium $100→$110 (+14%)</td>
+          <td>✅ Príležitosť — nespokojní zákazníci</td>
+          <td><a href="https://msdynamicsworld.com/blog-post/understanding-microsoft-dynamics-365-business-central-pricing-2026-guide">msdynamicsworld.com</a></td>
+        </tr>
+        <tr class="update-log-row">
+          <td>Q1 2026</td>
+          <td>Seyfor (Money ERP)</td>
+          <td>Milestone</td>
+          <td>11 000 users v 1 300 CZ+SK firmách — dominantná pozícia SME</td>
+          <td>⚠️ Silný local rival</td>
+          <td><a href="https://www.seyfor.com">seyfor.com</a></td>
+        </tr>
+        <tr class="update-log-row">
+          <td>Q1 2026</td>
+          <td>Microsoft BC</td>
+          <td>Feature</td>
+          <td>BC 2026 Wave 1 — AI inventory, e-commerce integrácia, omnichannel</td>
+          <td>⚠️ BC posilňuje retail segment</td>
+          <td><a href="https://dynamics.microsoft.com">microsoft.com</a></td>
+        </tr>
+        <tr class="update-log-row">
+          <td>Q1 2026</td>
+          <td>ABRA Flexi</td>
+          <td>Release</td>
+          <td>Verzia 2026.3.13 — AI funkcie, nové rozšírenia</td>
+          <td>⚠️ ABRA zrýchľuje vývoj</td>
+          <td><a href="https://www.abra.eu">abra.eu</a></td>
+        </tr>
+        <tr class="update-log-row">
+          <td>Q1 2025</td>
+          <td>Odoo</td>
+          <td>Release</td>
+          <td>Odoo 18 — AI invoice parsing, vylepšený POS, CRM AI</td>
+          <td>🔴 Silnejší free competitor</td>
+          <td><a href="https://www.odoo.com">odoo.com</a></td>
+        </tr>
+        <tr class="update-log-row">
+          <td>Máj 2026</td>
+          <td>NetSuite</td>
+          <td>Pricing</td>
+          <td>Základná licencia: od $99/user/mes + $999/mes base fee</td>
+          <td>🔵 ERI OS 5× lacnejší pre SME</td>
+          <td><a href="https://www.netsuite.com">netsuite.com</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <strong>ERI OS — Competitive Intelligence Report</strong><br>
+    Verzia: Máj 2026 · Pripravil: Claude AI Agent (Cowork Mode) · Pre: Matúš Benčo
+  </div>
+  <div style="text-align:right;">
+    Zdroje: sap.com · oracle.com · netsuite.com · microsoft.com · odoo.com · abra.eu · seyfor.com · helios.eu · epicor.com · erpresearch.com<br>
+    Ceny označené ⚠️ sú odhady — potrebné priame overenie u vendora
+  </div>
+</div>
+
+</body>
+</html>
