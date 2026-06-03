@@ -69,8 +69,8 @@ section{scroll-margin-top:84px}
 /* HERO */
 .hero {
   position: relative;
-  height: 100vh; /* Pevne ukotvená výška presne na obrazovku */
-  max-height: 100vh; 
+  height: 100svh; /* na viditenú výšku obrazovky (rieši mobilný URL bar) */
+  max-height: 100svh; 
   width: 100vw;
   display: flex;
   align-items: center;
@@ -90,7 +90,7 @@ section{scroll-margin-top:84px}
 
 .hero-video{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:auto}
 .hero-video iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100vw;height:56.25vw;min-height:100svh;min-width:177.78svh;border:0;pointer-events:auto}
-.hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,pointer-events: none;rgba(6,13,11,.8) 0%,rgba(6,13,11,.5) 36%,rgba(6,13,11,.16) 66%,rgba(6,13,11,.04) 100%)}
+.hero-overlay{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(6,13,11,.55) 0%,rgba(6,13,11,.18) 45%,transparent 75%),linear-gradient(0deg,rgba(6,13,11,.55),transparent 38%)}
 .hero-overlay::after{content:"";pointer-events: none;position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,13,11,.78),transparent 34%)}
 
 .hero .container{position:relative;z-index:5;padding-block:clamp(110px,16vh,170px) 64px;pointer-events: none}
@@ -269,39 +269,59 @@ section{scroll-margin-top:84px}
 /* OVLÁDANIE VIDEA NA STREDE */
 .vr-controls {
   position: absolute;
-  bottom: 40px;
-  left: 50%; /* Posun na stred */
-  transform: translateX(-50%); /* Presné centrovanie */
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
   z-index: 50;
   display: flex;
   align-items: center;
-  gap: 15px;
-  background: rgba(11, 32, 29, 0.85);
-  padding: 10px 20px;
+  gap: 12px;
+  width: min(560px, calc(100vw - 32px));
+  background: rgba(11, 32, 29, 0.92);
+  padding: 10px 16px;
   border-radius: 50px;
-  border: 1px solid rgba(127, 217, 201, 0.3);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(127, 217, 201, 0.35);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
   pointer-events: auto !important;
 }
 .vr-controls button {
-  background: none; 
-  border: none; 
-  color: #fff; 
-  font-size: 1.2rem; 
-  cursor: pointer; 
-  transition: color 0.2s;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
 }
-
-.vr-controls button:hover { 
-  color: var(--teal-light); 
+.vr-controls button:hover,
+.vr-controls button:focus-visible {
+  color: var(--teal-light);
+  background: rgba(127,217,201,0.12);
+  outline: none;
 }
-
+.vr-time {
+  font-family: var(--font-m);
+  font-size: 0.72rem;
+  color: #cfe;
+  min-width: 42px;
+  text-align: center;
+}
 .vr-controls input[type="range"] {
-  width: 150px; 
-  accent-color: var(--crimson); 
+  flex: 1;
+  min-width: 80px;
+  height: 6px;
+  accent-color: var(--crimson);
   cursor: pointer;
 }
-
+@media (max-width: 540px) {
+  .vr-controls { gap: 8px; padding: 8px 12px; }
+  .vr-controls button { font-size: 1.05rem; min-width: 38px; min-height: 38px; }
+  .vr-time { min-width: 36px; font-size: 0.66rem; }
+}
 /* Trieda, ktorá sa pridá, keď sa video minimalizuje */
 .hero-video.minimized {
   inset: auto;
@@ -397,6 +417,14 @@ section{scroll-margin-top:84px}
   display: none;
 }
 
+
+/* VR efekt: šošovkový vignette okolo zakriveného plátna */
+#video-container::after{
+  content:"";
+  position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:radial-gradient(120% 120% at 50% 50%, transparent 52%, rgba(0,0,0,.58) 100%);
+}
+.hero-video.minimized::after{ display:none; }
 </style>
 </head>
 <body>
@@ -424,12 +452,15 @@ section{scroll-margin-top:84px}
   </div>
   <div class="hero-overlay"></div>
   
-  <div class="vr-controls">
-    <button id="vr-play" title="Pozastaviť/Spustiť">⏸</button>
-    <button id="vr-zoom-out" title="Oddialiť">➖</button>
-    <button id="vr-zoom-in" title="Priblížiť">➕</button>
-    <input type="range" id="vr-slider" min="0" max="100" value="0" step="0.1" title="Časová os">
-    <button id="vr-minimize" title="Minimalizovať / Maximalizovať">⛶</button>
+  <div class="vr-controls" role="group" aria-label="Ovládanie videa">
+    <button id="vr-play" aria-label="Pozastaviť alebo spustiť">⏸</button>
+    <button id="vr-zoom-out" aria-label="Oddialiť">➖</button>
+    <button id="vr-zoom-in" aria-label="Priblížiť">➕</button>
+    <span class="vr-time" id="vr-cur">0:00</span>
+    <input type="range" id="vr-slider" min="0" max="100" value="0" step="0.1" aria-label="Časová os videa">
+    <span class="vr-time" id="vr-dur">0:00</span>
+    <button id="vr-fs" aria-label="Celá obrazovka">⛶</button>
+    <button id="vr-minimize" aria-label="Minimalizovať alebo maximalizovať">▭</button>
   </div>
 
   <div class="scrollcue" aria-hidden="true"><span class="mouse"></span>scroll</div>
@@ -756,7 +787,7 @@ s0.parentNode.insertBefore(s1,s0);
 
   // ZMENA 1: Zmenili sme základný uhol FOV zo 60 na 30 (Kamera vás hodí priamo k obrazu)
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 3000);
+  const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 3000);
   camera.position.set(0, 0, 0.1); 
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -777,16 +808,28 @@ s0.parentNode.insertBefore(s1,s0);
   controls.minPolarAngle = Math.PI / 2 - 0.4; 
   controls.maxPolarAngle = Math.PI / 2 + 0.4; 
 
-  // OBROVSKÉ PLOCHÉ PLÁTNO (16:9)
-  const geometry = new THREE.PlaneGeometry(1920, 1080);
+  // ZAKRIVENÉ PLÁTNO (valcový segment) – ploché video pôsobí ako VR/IMAX
+  const R = 1000;                                   // polomer zakrivenia
+  const arcDeg = 100;                               // šírka oblúka v stupňoch
+  const arc = arcDeg * Math.PI / 180;
+  const screenH = R * arc * 9 / 16;                 // výška pre pomer 16:9
+  const geometry = new THREE.CylinderGeometry(
+    R, R, screenH,
+    100, 1, true,                                   // openEnded
+    Math.PI - arc / 2, arc                          // oblúk vycentrovaný pred kameru (-Z)
+  );
+
   const texture = new THREE.VideoTexture(video);
   texture.minFilter = THREE.LinearFilter;
   texture.magFilter = THREE.LinearFilter;
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.repeat.x = -1;                            // korekcia zrkadlenia z vnútra valca
+  texture.offset.x = 1;                             // (ak by bol text v opačnom smere, zmažte tieto 2 riadky)
 
-  const material = new THREE.MeshBasicMaterial({ map: texture });
-  const mesh = new THREE.Mesh(geometry, material);
-  mesh.position.set(0, 0, -1000); 
+  const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.BackSide });
+  const mesh = new THREE.Mesh(geometry, material);  // valec obklopuje kameru v strede
   scene.add(mesh);
+  var gyroTargetY = 0, gyroTargetX = 0;             // ciele pre náklon z gyroskopu
 
   // ZMENA 3: Sprísnili sme oddialenie, aby sa video nedalo "zmenšiť" na maličké
   const maxFov = 50; // Najviac oddialené
@@ -840,9 +883,21 @@ s0.parentNode.insertBefore(s1,s0);
   }, false);
 
   // Animačná slučka
+  // pauza renderu, keď hero nie je na obrazovke (šetrí CPU/batériu)
+  var heroVisible = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      heroVisible = entries[0].isIntersecting;
+      if (heroVisible) { video.play().catch(function(){}); } else { video.pause(); }
+    }, { threshold: 0.05 }).observe(container);
+  }
+
   function animate() {
       requestAnimationFrame(animate);
-      controls.update(); 
+      if (!heroVisible) return;
+      mesh.rotation.y += (gyroTargetY - mesh.rotation.y) * 0.08;
+      mesh.rotation.x += (gyroTargetX - mesh.rotation.x) * 0.08;
+      controls.update();
       renderer.render(scene, camera);
   }
   animate();
@@ -859,8 +914,16 @@ s0.parentNode.insertBefore(s1,s0);
     else { video.pause(); playBtn.textContent = '▶'; }
   });
 
+  // čas + časová os
+  const fmt = function(s){ return isNaN(s) ? '0:00' : Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); };
+  const curEl = document.getElementById('vr-cur');
+  const durEl = document.getElementById('vr-dur');
+  video.addEventListener('loadedmetadata', function(){ durEl.textContent = fmt(video.duration); });
   video.addEventListener('timeupdate', function() {
-    if(video.duration) { slider.value = (video.currentTime / video.duration) * 100; }
+    if(video.duration) {
+      slider.value = (video.currentTime / video.duration) * 100;
+      curEl.textContent = fmt(video.currentTime);
+    }
   });
 
   slider.addEventListener('input', function() {
@@ -884,6 +947,31 @@ s0.parentNode.insertBefore(s1,s0);
        }, 150);
     }
   });
+
+  // Celá obrazovka
+  const fsBtn = document.getElementById('vr-fs');
+  fsBtn.addEventListener('click', function(){
+    const el = document.querySelector('.hero');
+    const req = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!document.fullscreenElement && req) { req.call(el); }
+    else if (document.exitFullscreen) { document.exitFullscreen(); }
+  });
+
+  // Gyroskop na mobile – zakrivené plátno reaguje na náklon telefónu (VR pocit)
+  function enableGyro(){
+    window.addEventListener('deviceorientation', function(ev){
+      if (ev.beta == null) return;
+      var yaw   = THREE.MathUtils.degToRad(ev.gamma || 0) * 0.5;
+      var pitch = THREE.MathUtils.degToRad((ev.beta || 0) - 45) * 0.4;
+      gyroTargetY = THREE.MathUtils.clamp(-yaw, -0.6, 0.6);
+      gyroTargetX = THREE.MathUtils.clamp(-pitch, -0.3, 0.3);
+    });
+  }
+  container.addEventListener('click', function(){
+    if (typeof DeviceOrientationEvent !== 'undefined' && DeviceOrientationEvent.requestPermission) {
+      DeviceOrientationEvent.requestPermission().then(function(st){ if (st === 'granted') enableGyro(); }).catch(function(){});
+    } else { enableGyro(); }
+  }, { once: true });
 
   // ----- OVLÁDANIE KLÁVESNICOU -----
   window.addEventListener('keydown', function(e) {
