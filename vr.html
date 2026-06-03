@@ -67,7 +67,17 @@ section{scroll-margin-top:84px}
 .burger span{width:24px;height:2px;background:var(--paper);transition:.25s;border-radius:2px}
 
 /* HERO */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;color:var(--paper);overflow:hidden;background:var(--teal-ink)}
+.hero {
+  position: relative;
+  height: 100vh; /* Pevne ukotvená výška presne na obrazovku */
+  max-height: 100vh; 
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  color: var(--paper);
+  overflow: hidden;
+  background: var(--teal-ink);
+}
 .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(130% 130% at 78% 18%,#15463c 0%,var(--teal-ink) 52%,#060d0b 100%)}
 
 /* Váš nový vložený kód: */
@@ -135,6 +145,14 @@ section{scroll-margin-top:84px}
 .pillar p{color:var(--ink2)}
 .pillar::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .pillar:hover::before{transform:scaleX(1)}
+
+/* ABSOLÚTNA POISTKA PRE ROZMERY PLÁTNA */
+#video-container canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+  display: block;
+  object-fit: cover;
+}
 
 /* VALUES */
 .values{background:#fff}
@@ -248,10 +266,12 @@ section{scroll-margin-top:84px}
 .contact-side .ab{flex-direction:column;margin:0 0 1.5rem}
 .contact-side .team{grid-template-columns:1fr;gap:.9rem}
 /* OVLÁDANIE VIDEA A MINIMALIZÁCIA */
+/* OVLÁDANIE VIDEA NA STREDE */
 .vr-controls {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: 40px;
+  left: 50%; /* Posun na stred */
+  transform: translateX(-50%); /* Presné centrovanie */
   z-index: 50;
   display: flex;
   align-items: center;
@@ -263,7 +283,6 @@ section{scroll-margin-top:84px}
   backdrop-filter: blur(10px);
   pointer-events: auto !important;
 }
-
 .vr-controls button {
   background: none; 
   border: none; 
@@ -297,13 +316,7 @@ section{scroll-margin-top:84px}
   z-index: 40;
 }
 
-/* Skrytie posuvníka, keď je video malé (aby nezavadzal) */
-.hero-video.minimized ~ .vr-controls input[type="range"],
-.hero-video.minimized ~ .vr-controls #vr-play,
-.hero-video.minimized ~ .vr-controls #vr-zoom-in,
-.hero-video.minimized ~ .vr-controls #vr-zoom-out {
-  display: none;
-}
+
 
 
 /* COOKIE NOTICE */
@@ -406,37 +419,39 @@ section{scroll-margin-top:84px}
 
 <section class="hero on-dark" id="top">
   <div class="hero-bg"></div>
-<div class="hero-video" id="video-container">
-    <!-- Skryté video, z ktorého si 3D scéna bude ťahať obraz -->
+  <div class="hero-video" id="video-container">
     <video id="pano-video" src="erios.mp4" loop muted autoplay playsinline crossorigin="anonymous" style="display: none;"></video>
   </div>
   <div class="hero-overlay"></div>
-  <!-- Ovládací panel pre VR video -->
- <div class="vr-controls">
-    <button id="vr-toggle-text" title="Skryť / Zobraziť text">👁️</button> <button id="vr-play" title="Pozastaviť/Spustiť">⏸</button>
+  
+  <div class="vr-controls">
+    <button id="vr-play" title="Pozastaviť/Spustiť">⏸</button>
     <button id="vr-zoom-out" title="Oddialiť">➖</button>
     <button id="vr-zoom-in" title="Priblížiť">➕</button>
     <input type="range" id="vr-slider" min="0" max="100" value="0" step="0.1" title="Časová os">
     <button id="vr-minimize" title="Minimalizovať / Maximalizovať">⛶</button>
   </div>
 
+  <div class="scrollcue" aria-hidden="true"><span class="mouse"></span>scroll</div>
+</section>
+
+<section class="section on-dark" style="background: var(--teal-ink); padding-top: 40px; border-bottom: 1px solid rgba(127,217,201,.14);">
   <div class="container">
-    <div class="hero-inner">
+    <div class="hero-inner" style="margin: 0 auto; text-align: center;">
       <span class="tag-mono" data-rise style="--dly:.05s">Enterprise Resource Intelligence</span>
-      <h1 data-rise style="--dly:.12s">Priebeh procesu a výsledky budúcnosti <span class="grad-text">vidíte už dnes.</span></h1>
-      <p class="hero-sub" data-rise style="--dly:.22s">ERIOS riadi procesy vo firme — od objednávky cez sklad a výrobu až po logistiku. Vizualizuje dáta tak, aby boli rozhodnutia optimálne, rýchlejšie a jednoduchšie. Bez závislosti od IT oddelenia.</p>
-      <div class="hero-actions" data-rise style="--dly:.32s">
+      <h1 data-rise style="--dly:.12s">Priebeh procesu a výsledky budúcnosti <br><span class="grad-text">vidíte už dnes.</span></h1>
+      <p class="hero-sub" data-rise style="--dly:.22s; margin: 0 auto 1.8rem;">ERIOS riadi procesy vo firme — od objednávky cez sklad a výrobu až po logistiku. Vizualizuje dáta tak, aby boli rozhodnutia optimálne, rýchlejšie a jednoduchšie. Bez závislosti od IT oddelenia.</p>
+      <div class="hero-actions" data-rise style="--dly:.32s; justify-content: center;">
         <a href="#kontakt" class="btn btn-primary">Vyžiadať analýzu <span class="arr">→</span></a>
         <a href="#co-je" class="btn btn-ghost">Ako to funguje</a>
       </div>
-      <div class="hero-meta" data-rise style="--dly:.42s">
+      <div class="hero-meta" data-rise style="--dly:.42s; justify-content: center;">
         <div class="m"><span class="num">~10 s</span><span class="lbl">synchronizácia zariadení</span></div>
         <div class="m"><span class="num">do 15 min</span><span class="lbl">obnova zariadenia cez QR</span></div>
         <div class="m"><span class="num">ERP → ERI</span><span class="lbl">nová generácia riadenia</span></div>
       </div>
     </div>
   </div>
-  <div class="scrollcue" aria-hidden="true"><span class="mouse"></span>scroll</div>
 </section>
 
 <section class="section statement" id="co-je">
@@ -734,57 +749,59 @@ s0.parentNode.insertBefore(s1,s0);
   const container = document.getElementById('video-container');
   const video = document.getElementById('pano-video');
 
+  // Spustenie videa po prvom kliknutí
   document.body.addEventListener('click', function() {
      if(video.paused) video.play();
   }, {once: true});
 
-  // Vytvorenie scény a kamery (základný zorný uhol 85 pre lepší pomer na obrazovke)
+  // ZMENA 1: Zmenili sme základný uhol FOV zo 60 na 30 (Kamera vás hodí priamo k obrazu)
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(85, window.innerWidth / window.innerHeight, 1, 2000);
+  const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 3000);
   camera.position.set(0, 0, 0.1); 
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.2));
   renderer.setSize(window.innerWidth, window.innerHeight);
   container.appendChild(renderer.domElement);
 
-  // Ovládanie otáčania
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableZoom = false; 
   controls.enablePan = false; 
   controls.enableDamping = true; 
   controls.dampingFactor = 0.05;
-  controls.rotateSpeed = -0.3; 
+  controls.rotateSpeed = -0.15; 
 
-  // UKOTVENIE VIDEA (Aby neutieklo z obrazovky)
-  controls.minAzimuthAngle = -1.0; // max doľava
-  controls.maxAzimuthAngle = 1.0;  // max doprava
-  controls.minPolarAngle = Math.PI / 2 - 0.4; // max hore
-  controls.maxPolarAngle = Math.PI / 2 + 0.4; // max dole
+  // ZMENA 2: Rozšírenie uhlov, aby ste sa pri tomto zväčšení vedeli pozrieť až do rohov
+  controls.minAzimuthAngle = -0.7; 
+  controls.maxAzimuthAngle = 0.7;  
+  controls.minPolarAngle = Math.PI / 2 - 0.4; 
+  controls.maxPolarAngle = Math.PI / 2 + 0.4; 
 
-  // ----- NOVÁ GEOMETRIA: OBROVSKÁ GUĽA -----
-  // Vďaka guli video vyplní 100% obrazovky a nezostanú zelené rohy
-  const geometry = new THREE.SphereGeometry(600, 60, 40);
-  geometry.scale(-1, 1, 1); 
-
+  // OBROVSKÉ PLOCHÉ PLÁTNO (16:9)
+  const geometry = new THREE.PlaneGeometry(1920, 1080);
   const texture = new THREE.VideoTexture(video);
+  texture.minFilter = THREE.LinearFilter;
+  texture.magFilter = THREE.LinearFilter;
+
   const material = new THREE.MeshBasicMaterial({ map: texture });
   const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(0, 0, -1000); 
   scene.add(mesh);
 
-  // ----- FUNKČNÝ ZOOM (Zmena FOV) -----
-  const maxFov = 110; // Najviac oddialené
-  const minFov = 40;  // Najviac priblížené
+  // ZMENA 3: Sprísnili sme oddialenie, aby sa video nedalo "zmenšiť" na maličké
+  const maxFov = 50; // Najviac oddialené
+  const minFov = 15; // Najviac priblížené
 
-  // Zoom kolieskom myši
+  // Zoom kolieskom myši (so stlačeným CTRL)
   container.addEventListener('wheel', function(e) {
+    if (!e.ctrlKey) return; 
     e.preventDefault();
     camera.fov += e.deltaY * 0.05;
     camera.fov = Math.max(minFov, Math.min(camera.fov, maxFov)); 
     camera.updateProjectionMatrix();
   }, { passive: false });
 
-  // Zoom na mobiloch
+  // Zoom na mobiloch (Pinch gestá)
   let touchDistance = 0;
   container.addEventListener('touchstart', function(e) {
     if(e.touches.length === 2) {
@@ -822,6 +839,7 @@ s0.parentNode.insertBefore(s1,s0);
     }
   }, false);
 
+  // Animačná slučka
   function animate() {
       requestAnimationFrame(animate);
       controls.update(); 
@@ -829,24 +847,11 @@ s0.parentNode.insertBefore(s1,s0);
   }
   animate();
 
-  // ----- OVLÁDANIE VIDEA (Play, Slider, Minimalizácia, SKRYTIE TEXTU) -----
+  // ----- OVLÁDANIE VIDEA (Play, Slider, Minimalizácia) -----
   const playBtn = document.getElementById('vr-play');
   const slider = document.getElementById('vr-slider');
   const minBtn = document.getElementById('vr-minimize');
-  const toggleTextBtn = document.getElementById('vr-toggle-text');
-  const heroInner = document.querySelector('.hero-inner');
   const heroVid = document.getElementById('video-container');
-
-  // Skrytie/Zobrazenie textu
-  toggleTextBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    heroInner.classList.toggle('vr-hidden');
-    if(heroInner.classList.contains('vr-hidden')) {
-      toggleTextBtn.style.opacity = '0.5';
-    } else {
-      toggleTextBtn.style.opacity = '1';
-    }
-  });
 
   playBtn.addEventListener('click', function(e) {
     e.preventDefault();
@@ -862,22 +867,25 @@ s0.parentNode.insertBefore(s1,s0);
     video.currentTime = (slider.value / 100) * video.duration;
   });
 
+  // Minimalizovanie do rohu a návrat
   minBtn.addEventListener('click', function(e) {
     e.preventDefault();
     heroVid.classList.toggle('minimized');
+    
     if(heroVid.classList.contains('minimized')) {
-       camera.aspect = 320 / 180; camera.updateProjectionMatrix();
+       camera.aspect = 320 / 180; 
+       camera.updateProjectionMatrix();
        renderer.setSize(320, 180);
-       // Ak sa video minimalizuje, uistíme sa, že je text viditeľný
-       heroInner.classList.remove('vr-hidden');
-       toggleTextBtn.style.opacity = '1';
     } else {
-       camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
-       renderer.setSize(window.innerWidth, window.innerHeight);
+       setTimeout(function() {
+         camera.aspect = window.innerWidth / window.innerHeight; 
+         camera.updateProjectionMatrix();
+         renderer.setSize(window.innerWidth, window.innerHeight);
+       }, 150);
     }
   });
 
-  // OVLÁDANIE KLÁVESNICOU
+  // ----- OVLÁDANIE KLÁVESNICOU -----
   window.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowRight') {
       video.currentTime = Math.min(video.duration, video.currentTime + 5);
