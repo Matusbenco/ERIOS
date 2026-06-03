@@ -239,11 +239,11 @@ section{scroll-margin-top:84px}
 .contact-side .team{grid-template-columns:1fr;gap:.9rem}
 
 /* COOKIE NOTICE */
-.cookie{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:2147483647;width:min(640px,92vw);background:rgba(11,32,29,.96);backdrop-filter:blur(10px);border:1px solid rgba(127,217,201,.22);border-radius:14px;padding:1rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;justify-content:space-between;box-shadow:0 18px 50px -20px rgba(0,0,0,.65)}
+.cookie{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:80;width:min(640px,92vw);background:rgba(11,32,29,.96);backdrop-filter:blur(10px);border:1px solid rgba(127,217,201,.22);border-radius:14px;padding:1rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;justify-content:space-between;box-shadow:0 18px 50px -20px rgba(0,0,0,.65)}
 .cookie p{color:#c6d6d1;font-size:.88rem;flex:1;min-width:220px;line-height:1.5}
 .cookie a{color:var(--teal-light);text-decoration:underline}
 .cookie .btn{padding:.6em 1.3em;font-size:.9rem}
-.cookie.hide {display: none !important; /* Pridané !important pre absolútnu prioritu */}
+.cookie.hide{display:none}
 
 /* FOOTER */
 .footer{background:#060d0b;color:#9fb4ae;padding-block:2.6rem}
@@ -587,14 +587,10 @@ section{scroll-margin-top:84px}
   if(!n) return;
   try{ if(localStorage.getItem('erios_cookie_ok')==='1') return; }catch(e){}
   n.hidden=false;
-  if(ok){
-    ok.addEventListener('click',function(e){
-      e.preventDefault();
-      n.style.display = 'none'; // Priame skrytie
-      n.classList.add('hide');
-      try{localStorage.setItem('erios_cookie_ok','1');}catch(e){}
-    });
-  }
+  if(ok){ok.addEventListener('click',function(){
+    n.classList.add('hide');
+    try{localStorage.setItem('erios_cookie_ok','1');}catch(e){}
+  });}
 })();
 </script>
 
@@ -603,6 +599,18 @@ section{scroll-margin-top:84px}
   <button class="btn btn-primary" id="cookieOk" type="button">Rozumiem</button>
 </div>
 
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6874ce1631d036190b698d63/1j044a2bk';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
