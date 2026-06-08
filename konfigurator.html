@@ -84,7 +84,8 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
 
 /* Intro */
 .intro{padding:clamp(34px,6vw,64px) 0 clamp(8px,2vw,18px)}
-.intro h1{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 1rem;max-width:16ch}
+.intro h1{font-size:clamp(1.55rem,3.2vw,2.35rem);margin:0 0 1rem;max-width:none}
+@media(min-width:1080px){.intro h1{white-space:nowrap}}
 .intro .lead{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--ink2);max-width:52ch}
 .intro-meta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
 .pill{font-family:var(--font-m);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:rgba(12,84,72,.08);border:1px solid rgba(12,84,72,.18);border-radius:999px;padding:.5em 1em;display:inline-flex;align-items:center;gap:.5em}
@@ -193,6 +194,49 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
 .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;display:inline-block;animation:sp .7s linear infinite;vertical-align:-3px}
 @keyframes sp{to{transform:rotate(360deg)}}
 
+/* Príloha (file) */
+.filewrap{display:flex;flex-direction:column;gap:.5rem}
+.fileinput{position:relative;display:flex;align-items:center;gap:.8rem;border:1.5px dashed rgba(12,84,72,.4);border-radius:12px;padding:.85rem 1rem;background:rgba(12,84,72,.04);cursor:pointer;transition:border-color .2s,background .2s}
+.fileinput:hover{border-color:var(--teal);background:rgba(12,84,72,.07)}
+.fileinput input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.fileinput .ico{font-size:1.2rem}
+.fileinput .ftxt{font-family:var(--font-b);font-size:.9rem;color:var(--ink2)}
+.fileinput .ftxt b{color:var(--teal);font-family:var(--font-d);font-weight:700}
+.filechip{display:none;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink);background:rgba(12,84,72,.08);border:1px solid rgba(12,84,72,.18);border-radius:10px;padding:.5rem .8rem}
+.filechip.show{display:inline-flex}
+.filechip button{background:none;border:0;color:var(--crimson);cursor:pointer;font-size:1rem;line-height:1;padding:0}
+
+/* Dôverná správa – zvýraznený box */
+.trustnote{background:rgba(12,84,72,.05);border:1px solid rgba(12,84,72,.18);border-radius:14px;padding:.9rem 1rem;display:flex;gap:.7rem;align-items:flex-start;margin:-.2rem 0 .8rem}
+.trustnote .lk{flex:0 0 auto;font-size:1.05rem;line-height:1.4}
+.trustnote p{font-size:.86rem;color:var(--ink2);line-height:1.5;margin:0}
+.trustnote p strong{color:var(--teal)}
+
+/* NDA / dôverná zóna – modál */
+.gate{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,32px);background:rgba(11,32,29,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+.gate.show{opacity:1;visibility:visible}
+.gate-card{position:relative;width:100%;max-width:520px;background:rgba(255,255,255,.97);border:1px solid rgba(11,32,29,.1);border-radius:24px;box-shadow:0 30px 80px -30px rgba(11,32,29,.6);padding:clamp(26px,4vw,40px);overflow:hidden;transform:translateY(14px) scale(.98);transition:transform .35s cubic-bezier(.22,.61,.36,1)}
+.gate.show .gate-card{transform:none}
+.gate-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad)}
+.gate-lock{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(12,84,72,.1);border:1px solid rgba(12,84,72,.2);font-size:1.5rem;margin-bottom:1.1rem}
+.gate-eyebrow{font-family:var(--font-m);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.5rem}
+.gate-card h2{font-size:clamp(1.4rem,3.5vw,1.85rem);margin-bottom:.7rem}
+.gate-card p{color:var(--ink2);font-size:.97rem;line-height:1.6;margin-bottom:1.2rem}
+.gate-nda{display:flex;flex-wrap:wrap;gap:.7rem;background:rgba(12,84,72,.05);border:1px solid rgba(12,84,72,.16);border-radius:14px;padding:.9rem 1rem;margin-bottom:1.3rem;align-items:center}
+.gate-nda .nl{font-family:var(--font-m);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);flex:1 1 100%;margin-bottom:.2rem}
+.gate-link{display:inline-flex;align-items:center;gap:.45em;font-family:var(--font-d);font-weight:600;font-size:.9rem;color:var(--teal-ink);border:1.5px solid rgba(11,32,29,.18);border-radius:999px;padding:.5em 1.05em;transition:border-color .2s,color .2s,transform .15s}
+.gate-link:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-1px)}
+.gate-actions{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.gate-fine{font-size:.78rem;color:var(--ink3);margin-top:1rem;line-height:1.5}
+
+/* Motivačný banner vo výsledku */
+.res-motiv{background:var(--grad);background-size:160% 100%;color:#fff;border-radius:16px;padding:1.1rem 1.3rem;margin:1.4rem 0 .2rem;display:flex;gap:.8rem;align-items:flex-start;box-shadow:0 16px 36px -18px rgba(200,0,60,.5)}
+.res-motiv .mi{font-size:1.3rem;line-height:1.2;flex:0 0 auto}
+.res-motiv p{margin:0;font-family:var(--font-d);font-weight:600;font-size:1rem;line-height:1.45}
+.res-motiv p span{display:block;font-family:var(--font-b);font-weight:400;font-size:.86rem;opacity:.92;margin-top:.25rem}
+.rc{transition:transform .2s ease,box-shadow .25s ease}
+.rc:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(11,32,29,.4)}
+
 /* Pätička */
 .footer{background:var(--teal-ink);color:#cfe0db;margin-top:auto}
 .footer .container{padding-block:clamp(36px,6vw,56px);display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center;justify-content:space-between}
@@ -215,6 +259,25 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
 
 <div class="bg-orbs" aria-hidden="true"><span class="orb1"></span><span class="orb2"></span><span class="orb3"></span></div>
 
+<!-- Vstupná brána – dôverná zóna + NDA -->
+<div class="gate" id="ndaGate" role="dialog" aria-modal="true" aria-labelledby="ndaTitle">
+  <div class="gate-card">
+    <div class="gate-lock" aria-hidden="true">🔒</div>
+    <span class="gate-eyebrow">Dôverná zóna</span>
+    <h2 id="ndaTitle">Vstupujete do chráneného priestoru</h2>
+    <p>Tu nám môžete dôverne zveriť údaje o vašej firme. Pracuje s nimi výhradne <strong>zverený odborník ERIOS</strong> a chránime ich dohodou o mlčanlivosti (NDA).</p>
+    <div class="gate-nda">
+      <span class="nl">Dohoda o mlčanlivosti</span>
+      <a class="gate-link" href="nda.pdf" target="_blank" rel="noopener">👁 Zobraziť NDA</a>
+      <a class="gate-link" href="nda.pdf" download>⬇ Stiahnuť</a>
+    </div>
+    <div class="gate-actions">
+      <button type="button" class="btn btn-primary" id="gateContinue">Pokračovať <span class="arr">→</span></button>
+    </div>
+    <p class="gate-fine">Pokračovaním beriete na vedomie, že vaše údaje spracujeme v súlade so zásadami ochrany osobných údajov a pravidlami NDA.</p>
+  </div>
+</div>
+
 <header class="header">
   <div class="container nav">
     <a href="index.html" class="brand" aria-label="ERIOS — domov"><span class="brand-live"><img class="eri" alt="ERI" src="data:image/png;base64,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"><svg class="o-spin" viewBox="0 0 100 100" aria-hidden="true">
@@ -232,8 +295,8 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
   <section class="intro">
     <div class="container">
       <span class="eyebrow">Konfigurátor</span>
-      <h1>Zistite, čo vám <span class="grad-text">ERIOS</span> prinesie</h1>
-      <p class="lead">Odkliknite pár údajov o vašej firme a my vám hneď ukážeme orientačnú vstupnú investíciu aj návratnosť. Bez záväzkov — presné čísla s vami doladí náš špecialista.</p>
+      <h1>Zistite, kedy sa Vám vráti investícia do <span class="grad-text">ERIOS</span></h1>
+      <p class="lead">Odkliknite pár údajov o vašej firme a my vám hneď ukážeme orientačnú vstupnú investíciu aj čas návratnosti. Bez záväzkov — presné čísla s vami doladí náš špecialista.</p>
       <div class="intro-meta">
         <span class="pill">⏱ ~2–3 minúty</span>
         <span class="pill">🔒 Nezáväzné</span>
@@ -325,7 +388,28 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
   var SLA = "do 1 pracovného dňa";
 
   /* ====================== KONFIGURÁCIA KROKOV ====================== */
+  // Posledný krok (Výsledok) sa zobrazí v lište automaticky.
+  var RESULT_LABEL = "Výsledok";
   var STEPS = [
+    {
+      label:"Údaje o Vás", title:"Údaje o Vás",
+      tip:"Predbežné výsledky zobrazíme hneď, detailnejšie pošleme e-mailom a kontaktuje vás náš špecialista.",
+      qs:[
+        { key:"meno", type:"text", req:true, label:"Meno a priezvisko", placeholder:"Ján Novák" },
+        { key:"firma", type:"text", req:true, label:"Firma", placeholder:"Názov firmy" },
+        { key:"email", type:"email", req:true, label:"Firemný e-mail", placeholder:"jan@firma.sk" },
+        { key:"telefon", type:"tel", req:true, label:"Telefón", placeholder:"+421…" },
+        { key:"rola", type:"single", req:true, label:"Vaša rola",
+          options:[["Majiteľ / spoločník","majitel"],["Konateľ","konatel"],["Finančný riaditeľ","cfo"],["Prevádzkový riaditeľ","coo"],["Riaditeľ","riaditel"],["Manažér","manazer"],["IT","it"]] },
+        { key:"poznamka", type:"textarea", label:"Vaša dôveryhodná správa pre nášho špecialistu", opt:true,
+          trust:"Tu môžete napísať váš pálčivý problém. Túto správu uvidí len zverený odborník v súlade s našimi pravidlami NDA.",
+          placeholder:"Čo vás najviac páli…" },
+        { key:"priloha", type:"file", label:"Príloha", opt:true,
+          hint:"Napr. zadanie, špecifikácia a iné. (max. ~10 MB)" },
+        { key:"consent", type:"consent", req:true,
+          text:'Súhlasím so spracovaním osobných údajov za účelom prípravy ponuky a kontaktovania. <a href="index.html#kontakt">Zásady spracovania</a>.' }
+      ]
+    },
     {
       label:"Veľkosť", title:"Veľkosť firmy",
       tip:"Pomôže nám určiť rozsah riešenia. Stačí kliknúť.",
@@ -344,40 +428,27 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
       label:"Súčasný stav", title:"Ako to funguje dnes",
       tip:"Aby sme vedeli, čo nahradíme a čo prepojíme.",
       qs:[
-        { key:"procesy", type:"single", label:"Ako dnes riadite procesy", opt:true,
+        { key:"procesy", type:"multi", label:"Ako dnes riadite procesy", opt:true, hint:"Vyberte všetko, čo sedí.",
           options:[["Papier / Excel","papier"],["Jeden ERP","jeden"],["Viac nespojených systémov","viac"],["Kombinácia","kombi"]] },
         { key:"erp", type:"single", label:"Používate ERP?", opt:true, options:[["Áno","ano"],["Nie","nie"]] },
         { key:"erpName", type:"text", label:"Aký ERP?", opt:true, placeholder:"napr. SAP, Helios, Odoo…", showIf:{key:"erp",val:"ano"} },
-        { key:"mes", type:"single", label:"Používate MES?", opt:true, options:[["Áno","ano"],["Nie","nie"]] },
-        { key:"mesName", type:"text", label:"Aký MES?", opt:true, placeholder:"názov systému", showIf:{key:"mes",val:"ano"} },
-        { key:"odvetvie", type:"single", label:"Odvetvie", opt:true,
-          options:[["Strojárstvo","strojarstvo"],["Potravinárstvo","potravinarstvo"],["Výroba na zákazku","zakazka"],["Retail / e-commerce","retail"],["Logistika","logistika"],["Iné","ine"]] },
-        { key:"odvetvieIne", type:"text", label:"Aké odvetvie?", opt:true, placeholder:"doplňte", showIf:{key:"odvetvie",val:"ine"} }
+        { key:"trvanie", type:"single", label:"Ako dlho pracujete so súčasným systémom", opt:true,
+          options:[["1–2 roky","1-2"],["2–5 rokov","2-5"],["5–10 rokov","5-10"],["10+","10+"]] },
+        { key:"odvetvie", type:"multi", label:"Odvetvie", opt:true, hint:"Môžete označiť aj viac naraz.",
+          options:[["Výroba","vyroba"],["Maloobchod / Veľkoobchod","mvo"],["Retail / e-commerce","retail"],["Logistika","logistika"],["Iné","ine"]] },
+        { key:"odvetvieSpres", type:"text", label:"Stručné spresnenie odvetvia", opt:true, placeholder:"napr. nábytok, potraviny, kovovýroba…", showIfAny:{key:"odvetvie"} }
       ]
     },
     {
-      label:"Ciele", title:"Čo chcete riešiť",
+      label:"Riešenie", title:"Čo má ERIOS vyriešiť",
       tip:"Vyberte všetko, čo sedí — podľa toho nastavíme dôraz.",
       qs:[
         { key:"ciele", type:"multi", def:true, label:"Hlavné ciele", hint:"Predvolene zaškrtnuté všetky — odznačte, čo vás netrápi.",
-          options:[["Sklad a cashflow","sklad"],["Plánovanie výroby","planovanie"],["Riadenie ľudí a výkonu","ludia"],["Vizualizácia a reporting","vizualizacia"],["Expedícia / logistika","expedicia"],["Kvalita a chybovosť","kvalita"]] },
-        { key:"integracie", type:"multi", label:"Potrebné integrácie", opt:true,
-          options:[["Účtovníctvo","uctovnictvo"],["E-shop","eshop"],["Doprava / kuriéri","doprava"],["Váhy / stroje","stroje"],["Žiadne / neviem","ziadne"]] }
-      ]
-    },
-    {
-      label:"Kontakt", title:"Kam pošleme výsledok",
-      tip:"Po odoslaní vám hneď zobrazíme orientačnú cenu aj návratnosť.",
-      qs:[
-        { key:"meno", type:"text", req:true, label:"Meno a priezvisko", placeholder:"Ján Novák" },
-        { key:"firma", type:"text", req:true, label:"Firma", placeholder:"Názov firmy" },
-        { key:"email", type:"email", req:true, label:"Firemný e-mail", placeholder:"jan@firma.sk" },
-        { key:"telefon", type:"tel", label:"Telefón", opt:true, placeholder:"+421…" },
-        { key:"rola", type:"single", label:"Vaša rola", opt:true,
-          options:[["Majiteľ","majitel"],["Manažér prevádzky","manazer"],["IT","it"],["Iné","ine"]] },
-        { key:"poznamka", type:"textarea", label:"Poznámka", opt:true, placeholder:"Čokoľvek, čo by sme mali vedieť…" },
-        { key:"consent", type:"consent", req:true,
-          text:'Súhlasím so spracovaním údajov za účelom prípravy ponuky a kontaktovania. <a href="index.html#kontakt">Zásady spracovania</a>.' }
+          options:[["Sklad a cashflow","sklad"],["Plánovanie a riadenie výroby","planovanie"],["Riadenie, sledovanie ľudí a výkonu","ludia"],["Expedícia, logistika a fakturácia","expedicia"],["Reporting","reporting"],["Kvalita a chybovosť","kvalita"],["Iné","ine"]] },
+        { key:"cieleIne", type:"text", label:"Aký ďalší cieľ?", opt:true, placeholder:"doplňte", showIfHas:{key:"ciele",val:"ine"} },
+        { key:"integracie", type:"multi", label:"Potrebné integrácie / napojenia", opt:true, exclusive:["ziadne","neviem"],
+          options:[["Účtovníctvo","uctovnictvo"],["E-shop","eshop"],["Doprava","doprava"],["Kuriéri","kurieri"],["Váhy","vahy"],["Stroje","stroje"],["Pokladne","pokladne"],["Žiadne","ziadne"],["Neviem","neviem"],["Iné","ine"]] },
+        { key:"integracieIne", type:"text", label:"Aká integrácia?", opt:true, placeholder:"doplňte", showIfHas:{key:"integracie",val:"ine"} }
       ]
     }
   ];
@@ -402,31 +473,41 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
     f.style.width=a+"%"; if(v) v.textContent=a+" %";
   }
 
-  // labely krokov
-  STEPS.forEach(function(s,i){
+  // Celkový počet krokov v lište = vstupné kroky + Výsledok
+  var TOTAL = STEPS.length + 1;
+  var RESULT_STEP = STEPS.length; // index posledného (výsledok)
+
+  // labely krokov (vrátane Výsledku)
+  (STEPS.map(function(s){return s.label;}).concat([RESULT_LABEL])).forEach(function(lab,i){
     var el = document.createElement("div");
-    el.className = "st"; el.textContent = (i+1)+". "+s.label; el.dataset.i = i;
+    el.className = "st"; el.textContent = (i+1)+". "+lab; el.dataset.i = i;
     labels.appendChild(el);
   });
 
   function visible(q){
-    if(!q.showIf) return true;
-    return state[q.showIf.key] === q.showIf.val;
+    if(q.showIf){ return state[q.showIf.key] === q.showIf.val; }
+    if(q.showIfHas){ var a=state[q.showIfHas.key]; return Array.isArray(a) && a.indexOf(q.showIfHas.val)>-1; }
+    if(q.showIfAny){ var b=state[q.showIfAny.key]; return Array.isArray(b) && b.length>0; }
+    return true;
+  }
+
+  function setStepLights(activeIdx, doneUpTo){
+    Array.prototype.forEach.call(labels.children,function(el,i){
+      el.classList.toggle("active", i===activeIdx);
+      el.classList.toggle("done", i<doneUpTo);
+    });
   }
 
   function render(){
     var s = STEPS[step];
-    counter.textContent = "Krok "+(step+1)+" / "+STEPS.length;
+    counter.textContent = "Krok "+(step+1)+" / "+TOTAL;
     title.textContent = s.title;
     tip.textContent = s.tip;
-    fill.style.width = ((step+1)/STEPS.length*100)+"%";
-    Array.prototype.forEach.call(labels.children,function(el,i){
-      el.classList.toggle("active", i===step);
-      el.classList.toggle("done", i<step);
-    });
+    fill.style.width = ((step+1)/TOTAL*100)+"%";
+    setStepLights(step, step);
     backBtn.hidden = step===0;
     nextBtn.innerHTML = step===STEPS.length-1
-      ? 'Zobraziť orientačnú cenu <span class="arr">→</span>'
+      ? 'Zobraziť výsledok <span class="arr">→</span>'
       : 'Pokračovať <span class="arr">→</span>';
 
     body.innerHTML = "";
@@ -439,6 +520,28 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
     updateMeter();
   }
 
+  // Vstupná brána – dôverná zóna / NDA
+  (function(){
+    var gate = document.getElementById("ndaGate");
+    var cont = document.getElementById("gateContinue");
+    if(!gate || !cont) return;
+    requestAnimationFrame(function(){ gate.classList.add("show"); });
+    document.body.style.overflow = "hidden";
+    cont.addEventListener("click", function(){
+      gate.classList.remove("show");
+      document.body.style.overflow = "";
+      setTimeout(function(){ gate.style.display = "none"; }, 350);
+    });
+  })();
+
+  function controlsConditional(key){
+    return STEPS[step].qs.some(function(x){
+      return (x.showIf && x.showIf.key===key) ||
+             (x.showIfHas && x.showIfHas.key===key) ||
+             (x.showIfAny && x.showIfAny.key===key);
+    });
+  }
+
   function buildQ(q){
     var wrap = document.createElement("div");
     if(q.type==="note"){
@@ -449,6 +552,7 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
       wrap.innerHTML = '<span class="qlabel">'+q.label+(q.opt?' <span class="opt">(nepovinné)</span>':'')+'</span>'+(q.hint?'<p class="qhint">'+q.hint+'</p>':'');
       var c = document.createElement("div");
       c.className = "chips"+(q.type==="multi"?" multi":"");
+      var trigger = controlsConditional(q.key);
       q.options.forEach(function(o){
         var b = document.createElement("button");
         b.type="button"; b.className="chip"; b.textContent=o[0]; b.dataset.val=o[1];
@@ -459,42 +563,30 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
         b.addEventListener("click",function(){
           if(q.type==="multi"){
             var arr = Array.isArray(state[q.key])?state[q.key].slice():[];
+            var excl = q.exclusive || [];
             var ix = arr.indexOf(o[1]);
-            if(ix>-1){ arr.splice(ix,1); b.classList.remove("sel"); }
-            else { arr.push(o[1]); b.classList.add("sel"); }
+            if(ix>-1){ arr.splice(ix,1); }
+            else {
+              if(excl.indexOf(o[1])>-1){ arr=[o[1]]; }            // výber „Žiadne/Neviem" → len ono
+              else { arr = arr.filter(function(v){return excl.indexOf(v)===-1;}); arr.push(o[1]); }
+            }
             state[q.key]=arr;
+            if(trigger){ render(); } else {
+              Array.prototype.forEach.call(c.children,function(x){
+                x.classList.toggle("sel", arr.indexOf(x.dataset.val)>-1);
+              });
+            }
           } else {
             state[q.key]=o[1];
             Array.prototype.forEach.call(c.children,function(x){x.classList.remove("sel");});
             b.classList.add("sel");
-            if(q.showIfTrigger) render(); // prekresli ak ovláda podmienené pole
+            if(trigger){ render(); }
           }
           syncNext();
         });
         c.appendChild(b);
       });
-      // ak na túto otázku visí podmienené pole, po zmene prekresli
-      if(STEPS[step].qs.some(function(x){return x.showIf && x.showIf.key===q.key;})) q.showIfTrigger=true;
       wrap.appendChild(c);
-      return wrap;
-    }
-    if(q.type==="slider"){
-      wrap.className="slider";
-      var val = state[q.key]!=null ? state[q.key] : q.def;
-      state[q.key]=val;
-      wrap.innerHTML =
-        '<div class="sl-top"><span class="sl-lab">'+q.label+'</span><span class="sl-val">'+val+' %</span></div>'+
-        '<input type="range" min="'+q.min+'" max="'+q.max+'" value="'+val+'">';
-      var rng = wrap.querySelector("input"), out = wrap.querySelector(".sl-val");
-      rng.addEventListener("input",function(){ state[q.key]=+rng.value; out.textContent=rng.value+" %"; });
-      return wrap;
-    }
-    if(q.type==="meter"){
-      wrap.className="acc";
-      wrap.innerHTML =
-        '<div class="acc-top"><span>Presnosť orientačného odhadu</span><span class="acc-val" id="accVal">—</span></div>'+
-        '<div class="acc-track"><div class="acc-fill" id="accFill" style="width:8%"></div></div>'+
-        '<p class="acc-tip">Doplňte čísla a odhad sa spresní. Posledný krok k presnému číslu — a často k ešte väčšiemu potenciálu — doladí náš špecialista.</p>';
       return wrap;
     }
     if(q.type==="consent"){
@@ -505,17 +597,44 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
       chk.addEventListener("change",function(){ state[q.key]=chk.checked; syncNext(); });
       return wrap;
     }
+    if(q.type==="file"){
+      wrap.className="field filewrap";
+      var fid="f_"+q.key;
+      wrap.innerHTML =
+        '<label for="'+fid+'">'+q.label+(q.opt?' <span class="opt">(nepovinné)</span>':'')+'</label>'+
+        (q.hint?'<p class="qhint" style="margin:0">'+q.hint+'</p>':'')+
+        '<label class="fileinput"><span class="ico">📎</span>'+
+          '<span class="ftxt"><b>Vyberte súbor</b> alebo ho sem presuňte</span>'+
+          '<input type="file" id="'+fid+'"></label>'+
+        '<span class="filechip" id="'+fid+'_chip"><span class="nm"></span>'+
+          '<button type="button" aria-label="Odstrániť prílohu">✕</button></span>';
+      var inp = wrap.querySelector('input[type=file]');
+      var chip = wrap.querySelector('.filechip');
+      var nm = chip.querySelector('.nm');
+      if(state[q.key]){ nm.textContent=state[q.key].name; chip.classList.add("show"); }
+      inp.addEventListener("change",function(){
+        var f = inp.files && inp.files[0];
+        if(f){ state[q.key]=f; nm.textContent=f.name; chip.classList.add("show"); }
+      });
+      chip.querySelector('button').addEventListener("click",function(){
+        state[q.key]=null; inp.value=""; chip.classList.remove("show");
+      });
+      return wrap;
+    }
     // text / email / tel / number / textarea
     wrap.className="field";
     var id="f_"+q.key;
     var inputHtml = q.type==="textarea"
       ? '<textarea id="'+id+'" placeholder="'+(q.placeholder||'')+'"></textarea>'
       : '<input id="'+id+'" type="'+(q.type==="number"?"number":(q.type==="email"?"email":(q.type==="tel"?"tel":"text")))+'" placeholder="'+(q.placeholder||'')+'" '+(q.type==="number"?'min="0" inputmode="numeric"':'')+'>';
-    wrap.innerHTML = '<label for="'+id+'">'+q.label+(q.opt?' <span class="opt">(nepovinné)</span>':'')+'</label>'+inputHtml;
-    var inp = wrap.querySelector("input,textarea");
-    if(state[q.key]!=null) inp.value = state[q.key];
-    inp.addEventListener("input",function(){
-      state[q.key] = q.type==="number" ? (inp.value===""?null:+inp.value) : inp.value;
+    wrap.innerHTML = '<label for="'+id+'">'+q.label+(q.opt?' <span class="opt">(nepovinné)</span>':'')+'</label>'+
+      (q.trust?'<div class="trustnote"><span class="lk">🔒</span><p>'+q.trust+'</p></div>':'')+
+      (q.hint?'<p class="qhint" style="margin:0 0 .2rem">'+q.hint+'</p>':'')+
+      inputHtml;
+    var inp2 = wrap.querySelector("input,textarea");
+    if(state[q.key]!=null) inp2.value = state[q.key];
+    inp2.addEventListener("input",function(){
+      state[q.key] = q.type==="number" ? (inp2.value===""?null:+inp2.value) : inp2.value;
       syncNext();
     });
     return wrap;
@@ -559,9 +678,13 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
     if(state.prevadzky==="4+") score += 0.5;
     if(state.pouzivatelia==="80+") score += 0.4;
     else if(state.pouzivatelia==="30-80") score += 0.2;
-    if(state.procesy==="viac" || (state.erp==="ano" && state.mes==="ano")) score += 0.4;
+    var proc = Array.isArray(state.procesy)?state.procesy:[];
+    if(proc.indexOf("viac")>-1) score += 0.4;          // viac nespojených systémov
+    if(proc.length>=2) score += 0.2;                   // kombinácia => vyššia komplexnosť
+    if(state.trvanie==="10+") score += 0.3;            // dlho zabehnutý starý systém
+    else if(state.trvanie==="5-10") score += 0.15;
     if(Array.isArray(state.integracie)){
-      var n = state.integracie.filter(function(x){return x!=="ziadne";}).length;
+      var n = state.integracie.filter(function(x){return x!=="ziadne"&&x!=="neviem"&&x!=="ine";}).length;
       score += Math.min(0.4, n*0.1);
     }
     var idx = Math.round(score * (3/4));        // 0..~ -> 0..3
@@ -615,6 +738,11 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
     return val;
   }
 
+  function joinLabels(key){
+    var a = state[key];
+    return Array.isArray(a) ? a.map(function(v){return labelFor(key,v);}).join(", ") : "";
+  }
+
   function buildPayload(tier,price,roi){
     var d = {
       _subject: "Nová žiadosť z konfigurátora ERIOS — "+(state.firma||""),
@@ -622,16 +750,19 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
       cena_od: price,
       // kontakt
       meno: state.meno||"", firma: state.firma||"", email: state.email||"",
-      telefon: state.telefon||"", rola: state.rola?labelFor("rola",state.rola):"", poznamka: state.poznamka||"",
+      telefon: state.telefon||"", rola: state.rola?labelFor("rola",state.rola):"",
+      sprava_specialistovi: state.poznamka||"",
+      priloha: (state.priloha && state.priloha.name) ? state.priloha.name : "",
       // firma
       obrat: labelFor("obrat",state.obrat), zamestnanci: labelFor("zamestnanci",state.zamestnanci),
       prevadzky: state.prevadzky||"", pouzivatelia: state.pouzivatelia||"",
       // stav
-      procesy: state.procesy?labelFor("procesy",state.procesy):"", erp: state.erp||"", erp_aky: state.erpName||"",
-      mes: state.mes||"", mes_aky: state.mesName||"", odvetvie: state.odvetvie?labelFor("odvetvie",state.odvetvie):"", odvetvie_ine: state.odvetvieIne||"",
+      procesy: joinLabels("procesy"), erp: state.erp||"", erp_aky: state.erpName||"",
+      trvanie_systemu: state.trvanie?labelFor("trvanie",state.trvanie):"",
+      odvetvie: joinLabels("odvetvie"), odvetvie_spresnenie: state.odvetvieSpres||"",
       // ciele
-      ciele: Array.isArray(state.ciele)?state.ciele.map(function(v){return labelFor("ciele",v);}).join(", "):"",
-      integracie: Array.isArray(state.integracie)?state.integracie.map(function(v){return labelFor("integracie",v);}).join(", "):"",
+      ciele: joinLabels("ciele"), ciele_ine: state.cieleIne||"",
+      integracie: joinLabels("integracie"), integracie_ine: state.integracieIne||"",
       // návratnosť (orientačná, počítaná z veľkosti firmy)
       orient_rocna_uspora: roi.annual,
       orient_navratnost_mes: roi.monthsCons,
@@ -654,11 +785,21 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
     nextBtn.disabled = true;
     nextBtn.innerHTML = 'Odosielam <span class="spinner"></span>';
 
-    fetch(FORMSPREE, {
-      method:"POST",
-      headers:{ "Content-Type":"application/json", "Accept":"application/json" },
-      body: JSON.stringify(payload)
-    }).then(function(r){
+    var hasFile = state.priloha && state.priloha.name;
+    var opts;
+    if(hasFile){
+      // multipart – aby Formspree prijal prílohu
+      var fd = new FormData();
+      Object.keys(payload).forEach(function(k){ fd.append(k, payload[k]); });
+      fd.append("priloha_subor", state.priloha, state.priloha.name);
+      opts = { method:"POST", headers:{ "Accept":"application/json" }, body: fd };
+    } else {
+      opts = { method:"POST",
+        headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+        body: JSON.stringify(payload) };
+    }
+
+    fetch(FORMSPREE, opts).then(function(r){
       showResult(tier, price, roi, r && r.ok);
     }).catch(function(){
       showResult(tier, price, roi, false);
@@ -674,10 +815,11 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
     var roiHtml =
       '<div class="roi-cards">'+
         '<div class="rc"><span class="k">Vstupná investícia</span><span class="v">od '+fmtEur(price)+'</span></div>'+
-        '<div class="rc"><span class="k">Orientačná návratnosť</span><span class="v">~'+roi.monthsCons+' mes.</span><span class="sub">už od ~'+roi.monthsOpt+' mes.</span></div>'+
+        '<div class="rc"><span class="k">Orientačný čas návratnosti</span><span class="v">~'+roi.monthsCons+' mes.</span><span class="sub">už od ~'+roi.monthsOpt+' mes.</span></div>'+
         '<div class="rc"><span class="k">Orientačná ročná úspora</span><span class="v">od '+fmtEur(roi.annual)+'</span></div>'+
         '<div class="rc"><span class="k">Čistý prínos za 48 mes.</span><span class="v">~'+fmtEur(roi.net48)+'</span></div>'+
       '</div>'+
+      '<div class="res-motiv"><span class="mi">🚀</span><p>Čím skôr začnete, tým skôr sa investícia vráti — a potom už len pracuje pre vás.<span>Priebeh a výsledky budúcnosti vidíte už dnes. ERP → ERI.</span></p></div>'+
       '<div class="chart-legend">'+
         '<span><span class="ln"></span>Kumulatívna úspora</span>'+
         '<span><span class="ln dash"></span>Vstupná investícia</span>'+
@@ -702,10 +844,20 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
         recapRow("Obrat", labelFor("obrat",state.obrat))+
         recapRow("Zamestnanci", labelFor("zamestnanci",state.zamestnanci))+
         recapRow("Prevádzky", state.prevadzky||"")+
-        recapRow("Odvetvie", state.odvetvie?labelFor("odvetvie",state.odvetvie):"")+
-        recapRow("Súčasné riadenie", state.procesy?labelFor("procesy",state.procesy):"")+
-        recapRow("Ciele", Array.isArray(state.ciele)?state.ciele.map(function(v){return labelFor("ciele",v);}).join(", "):"")+
+        recapRow("Odvetvie", joinLabels("odvetvie") + (state.odvetvieSpres?(" — "+state.odvetvieSpres):""))+
+        recapRow("Súčasné riadenie", joinLabels("procesy"))+
+        recapRow("Dĺžka používania", state.trvanie?labelFor("trvanie",state.trvanie):"")+
+        recapRow("Ciele", joinLabels("ciele") + (state.cieleIne?(" — "+state.cieleIne):""))+
+        recapRow("Integrácie", joinLabels("integracie") + (state.integracieIne?(" — "+state.integracieIne):""))+
       '</dl></div>';
+
+    // Lišta krokov ostáva nad výsledkom a označí krok 5/5
+    var prog = document.querySelector(".cfg-progress");
+    if(prog){
+      R.insertBefore(prog, R.firstChild);
+      setStepLights(RESULT_STEP, RESULT_STEP);
+      fill.style.width = "100%";
+    }
 
     window.scrollTo({top:0,behavior:"smooth"});
     countUp($("#priceBig"), price);
@@ -751,10 +903,10 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
     requestAnimationFrame(step);
   }
 
-  // predvolene zaškrtnuté ciele
+  // predvolene zaškrtnuté ciele (okrem „Iné")
   for(var si=0; si<STEPS.length; si++){
     var cq = STEPS[si].qs.filter(function(x){return x.key==="ciele";})[0];
-    if(cq){ state.ciele = cq.options.map(function(o){return o[1];}); }
+    if(cq){ state.ciele = cq.options.map(function(o){return o[1];}).filter(function(v){return v!=="ine";}); }
   }
 
   render();
