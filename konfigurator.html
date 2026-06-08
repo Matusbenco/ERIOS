@@ -65,8 +65,8 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
 .brand{display:inline-flex;align-items:center;padding:0;transition:transform .2s ease,opacity .2s ease}
 .brand:hover{transform:translateY(-1px);opacity:.85}
 .nav-right{display:flex;align-items:center;gap:clamp(.8rem,2vw,1.4rem)}
-.nav-back{font-family:var(--font-d);font-weight:600;font-size:.92rem;color:var(--ink);opacity:.78;transition:opacity .2s,color .2s}
-.nav-back:hover{opacity:1;color:var(--accent)}
+.nav-back{display:inline-flex;align-items:center;gap:.4em;font-family:var(--font-d);font-weight:700;font-size:.9rem;color:var(--ink);border:1.5px solid rgba(11,32,29,.2);border-radius:999px;padding:.5em 1.05em;transition:border-color .2s,color .2s,background .2s,transform .15s}
+.nav-back:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
 
 /* Logo s točiacim O (z indexu) */
 .brand-live{display:inline-flex;align-items:center;height:33px;line-height:0}
@@ -273,6 +273,7 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
     </div>
     <div class="gate-actions">
       <button type="button" class="btn btn-primary" id="gateContinue">Pokračovať <span class="arr">→</span></button>
+      <a href="index.html" class="btn btn-ghost">← Späť na web</a>
     </div>
     <p class="gate-fine">Pokračovaním beriete na vedomie, že vaše údaje spracujeme v súlade so zásadami ochrany osobných údajov a pravidlami NDA.</p>
   </div>
@@ -358,7 +359,7 @@ h1,h2,h3,h4{font-family:var(--font-d);line-height:1.08;letter-spacing:-.02em;fon
   /* =========================================================
      NASTAVENIA NA LADENIE (upravte podľa interných pravidiel)
      ========================================================= */
-  var FORMSPREE = "https://formspree.io/f/xkoannn";
+  var FORMSPREE = "https://formspree.io/f/xkoannnw";
 
   // Cenové úrovne — zobrazujeme vždy len "od"
   var TIERS = [
