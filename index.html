@@ -651,6 +651,37 @@ section{scroll-margin-top:84px}
 .footer-brand .brand-live .o-spin{filter:drop-shadow(0 0 9px rgba(127,217,201,.4))}
 @media (prefers-reduced-motion:reduce){.o-spin .ring{animation:none!important}}
 </style>
+<style id="erios-apps">
+.apps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;margin-top:3.2rem}
+.app-card{position:relative;border:1px solid rgba(14,33,28,.1);border-radius:var(--r);background:#fff;padding:2.1rem 1.9rem;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column}
+.app-card::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%}
+.app-card.mgmt::before{background:linear-gradient(90deg,var(--teal),var(--teal-light))}
+.app-card.wh::before{background:linear-gradient(90deg,var(--crimson),var(--magenta))}
+.app-card:hover{transform:translateY(-4px);box-shadow:0 22px 50px -28px rgba(14,33,28,.45)}
+.app-card.mgmt:hover{border-color:var(--teal)}
+.app-card.wh:hover{border-color:var(--crimson)}
+.app-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
+.app-ico{flex:0 0 58px;width:58px;height:58px;border-radius:15px;display:grid;place-items:center}
+.app-ico.mgmt{background:var(--teal-ink)}
+.app-ico.wh{background:#23101b}
+.app-ico .o-spin{height:34px;width:34px;aspect-ratio:1;margin:0}
+.app-name{font-family:var(--font-d);font-weight:800;font-size:1.32rem;color:var(--ink);margin:0;line-height:1.1}
+.app-role{font-family:var(--font-m);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:.4em .85em;margin-top:.55rem;display:inline-block}
+.app-role.mgmt{background:rgba(12,84,72,.1);color:var(--teal)}
+.app-role.wh{background:rgba(200,0,60,.09);color:var(--crimson)}
+.app-feat{list-style:none;padding:0;margin:0 0 1.9rem;display:flex;flex-direction:column;gap:.65rem}
+.app-feat li{display:flex;align-items:flex-start;gap:.6rem;font-size:.98rem;color:var(--ink2);line-height:1.4}
+.app-feat svg{flex:0 0 20px;width:20px;height:20px;margin-top:.05rem}
+.app-card.mgmt .app-feat svg{color:var(--teal)}
+.app-card.wh .app-feat svg{color:var(--crimson)}
+.app-store{display:inline-flex;align-items:center;gap:.7em;align-self:flex-start;margin-top:auto;background:var(--teal-ink);color:#fff;border-radius:12px;padding:.7em 1.15em;text-decoration:none;transition:transform .2s,background .25s}
+.app-store:hover{transform:translateY(-2px);background:#06302a}
+.app-store svg{width:22px;height:22px;flex:0 0 22px}
+.app-store .gp-t{display:flex;flex-direction:column;line-height:1.05;text-align:left}
+.app-store .gp-s{font-family:var(--font-m);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.app-store .gp-n{font-family:var(--font-d);font-weight:700;font-size:1.02rem}
+@media(max-width:920px){.apps-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -668,6 +699,7 @@ section{scroll-margin-top:84px}
       <li><a href="#piliere">Piliere</a></li>
       <li><a href="#preco">Prečo ERIOS</a></li>
       <li><a href="#ako">Ako funguje</a></li>
+      <li><a href="#aplikacie">Aplikácie</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
       <li class="cta-m"><a href="konfigurator.html">Zistiť návratnosť</a></li>
@@ -870,6 +902,63 @@ section{scroll-margin-top:84px}
   </div>
 </section>
 
+<section class="section apps" id="aplikacie">
+  <div class="container">
+    <span class="eyebrow" data-rise>Aplikácie</span>
+    <h2 class="sect-title" data-rise>Riadenie máte aj <span class="grad-text">vo vrecku.</span></h2>
+    <p class="lead" data-rise>Jeden systém, dve aplikácie. Každá pre inú rolu — aby mal každý po ruke presne to, čo potrebuje.</p>
+    <div class="apps-grid">
+
+      <div class="app-card mgmt" data-rise>
+        <div class="app-head">
+          <span class="app-ico mgmt"><svg class="o-spin" viewBox="0 0 100 100" aria-hidden="true">
+  <g class="ring rA"><circle cx="97.00" cy="50.00" r="2.80"/><circle cx="95.82" cy="60.46" r="1.90"/><circle cx="92.35" cy="70.39" r="1.90"/><circle cx="86.75" cy="79.30" r="2.80"/><circle cx="79.30" cy="86.75" r="1.90"/><circle cx="70.39" cy="92.35" r="1.90"/><circle cx="60.46" cy="95.82" r="2.80"/><circle cx="50.00" cy="97.00" r="1.90"/><circle cx="39.54" cy="95.82" r="1.90"/><circle cx="29.61" cy="92.35" r="2.80"/><circle cx="20.70" cy="86.75" r="1.90"/><circle cx="13.25" cy="79.30" r="1.90"/><circle cx="7.65" cy="70.39" r="2.80"/><circle cx="4.18" cy="60.46" r="1.90"/><circle cx="3.00" cy="50.00" r="1.90"/><circle cx="4.18" cy="39.54" r="2.80"/><circle cx="7.65" cy="29.61" r="1.90"/><circle cx="13.25" cy="20.70" r="1.90"/><circle cx="20.70" cy="13.25" r="2.80"/><circle cx="29.61" cy="7.65" r="1.90"/><circle cx="39.54" cy="4.18" r="1.90"/><circle cx="50.00" cy="3.00" r="2.80"/><circle cx="60.46" cy="4.18" r="1.90"/><circle cx="70.39" cy="7.65" r="1.90"/><circle cx="79.30" cy="13.25" r="2.80"/><circle cx="86.75" cy="20.70" r="1.90"/><circle cx="92.35" cy="29.61" r="1.90"/><circle cx="95.82" cy="39.54" r="2.80"/></g>
+  <g class="ring rB"><circle cx="85.60" cy="55.38" r="3.10"/><circle cx="82.19" cy="66.12" r="2.20"/><circle cx="75.64" cy="75.27" r="2.20"/><circle cx="66.57" cy="81.96" r="3.10"/><circle cx="55.88" cy="85.52" r="2.20"/><circle cx="44.62" cy="85.60" r="2.20"/><circle cx="33.88" cy="82.19" r="3.10"/><circle cx="24.73" cy="75.64" r="2.20"/><circle cx="18.04" cy="66.57" r="2.20"/><circle cx="14.48" cy="55.88" r="3.10"/><circle cx="14.40" cy="44.62" r="2.20"/><circle cx="17.81" cy="33.88" r="2.20"/><circle cx="24.36" cy="24.73" r="3.10"/><circle cx="33.43" cy="18.04" r="2.20"/><circle cx="44.12" cy="14.48" r="2.20"/><circle cx="55.38" cy="14.40" r="3.10"/><circle cx="66.12" cy="17.81" r="2.20"/><circle cx="75.27" cy="24.36" r="2.20"/><circle cx="81.96" cy="33.43" r="3.10"/><circle cx="85.52" cy="44.12" r="2.20"/></g>
+  <g class="ring rC"><circle cx="73.88" cy="57.39" r="2.90"/><circle cx="67.71" cy="67.64" r="2.00"/><circle cx="57.49" cy="73.85" r="2.00"/><circle cx="45.54" cy="74.60" r="2.90"/><circle cx="34.62" cy="69.71" r="2.00"/><circle cx="27.22" cy="60.31" r="2.00"/><circle cx="25.04" cy="48.54" r="2.90"/><circle cx="28.58" cy="37.11" r="2.00"/><circle cx="37.02" cy="28.63" r="2.00"/><circle cx="48.44" cy="25.05" r="2.90"/><circle cx="60.21" cy="27.18" r="2.00"/><circle cx="69.65" cy="34.54" r="2.00"/><circle cx="74.58" cy="45.44" r="2.90"/></g>
+</svg></span>
+          <div>
+            <p class="app-name">ERIOS Management</p>
+            <span class="app-role mgmt">Dohľad a riadenie</span>
+          </div>
+        </div>
+        <ul class="app-feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Vizualizácia tokov</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Budúcnosť – realita – minulosť</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Riadenie procesov, strojov, ľudí a monitoring výkonu</li>
+        </ul>
+        <a class="app-store" href="#" aria-label="Stiahnuť ERIOS Management v službe Google Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 2.6v18.8a1 1 0 0 0 1.53.85l15.4-9.4a1 1 0 0 0 0-1.7L4.53 1.75A1 1 0 0 0 3 2.6z"/></svg>
+          <span class="gp-t"><span class="gp-s">Získať v službe</span><span class="gp-n">Google Play</span></span>
+        </a>
+      </div>
+
+      <div class="app-card wh" data-rise>
+        <div class="app-head">
+          <span class="app-ico wh"><svg class="o-spin" viewBox="0 0 100 100" aria-hidden="true">
+  <g class="ring rA"><circle cx="97.00" cy="50.00" r="2.80"/><circle cx="95.82" cy="60.46" r="1.90"/><circle cx="92.35" cy="70.39" r="1.90"/><circle cx="86.75" cy="79.30" r="2.80"/><circle cx="79.30" cy="86.75" r="1.90"/><circle cx="70.39" cy="92.35" r="1.90"/><circle cx="60.46" cy="95.82" r="2.80"/><circle cx="50.00" cy="97.00" r="1.90"/><circle cx="39.54" cy="95.82" r="1.90"/><circle cx="29.61" cy="92.35" r="2.80"/><circle cx="20.70" cy="86.75" r="1.90"/><circle cx="13.25" cy="79.30" r="1.90"/><circle cx="7.65" cy="70.39" r="2.80"/><circle cx="4.18" cy="60.46" r="1.90"/><circle cx="3.00" cy="50.00" r="1.90"/><circle cx="4.18" cy="39.54" r="2.80"/><circle cx="7.65" cy="29.61" r="1.90"/><circle cx="13.25" cy="20.70" r="1.90"/><circle cx="20.70" cy="13.25" r="2.80"/><circle cx="29.61" cy="7.65" r="1.90"/><circle cx="39.54" cy="4.18" r="1.90"/><circle cx="50.00" cy="3.00" r="2.80"/><circle cx="60.46" cy="4.18" r="1.90"/><circle cx="70.39" cy="7.65" r="1.90"/><circle cx="79.30" cy="13.25" r="2.80"/><circle cx="86.75" cy="20.70" r="1.90"/><circle cx="92.35" cy="29.61" r="1.90"/><circle cx="95.82" cy="39.54" r="2.80"/></g>
+  <g class="ring rB"><circle cx="85.60" cy="55.38" r="3.10"/><circle cx="82.19" cy="66.12" r="2.20"/><circle cx="75.64" cy="75.27" r="2.20"/><circle cx="66.57" cy="81.96" r="3.10"/><circle cx="55.88" cy="85.52" r="2.20"/><circle cx="44.62" cy="85.60" r="2.20"/><circle cx="33.88" cy="82.19" r="3.10"/><circle cx="24.73" cy="75.64" r="2.20"/><circle cx="18.04" cy="66.57" r="2.20"/><circle cx="14.48" cy="55.88" r="3.10"/><circle cx="14.40" cy="44.62" r="2.20"/><circle cx="17.81" cy="33.88" r="2.20"/><circle cx="24.36" cy="24.73" r="3.10"/><circle cx="33.43" cy="18.04" r="2.20"/><circle cx="44.12" cy="14.48" r="2.20"/><circle cx="55.38" cy="14.40" r="3.10"/><circle cx="66.12" cy="17.81" r="2.20"/><circle cx="75.27" cy="24.36" r="2.20"/><circle cx="81.96" cy="33.43" r="3.10"/><circle cx="85.52" cy="44.12" r="2.20"/></g>
+  <g class="ring rC"><circle cx="73.88" cy="57.39" r="2.90"/><circle cx="67.71" cy="67.64" r="2.00"/><circle cx="57.49" cy="73.85" r="2.00"/><circle cx="45.54" cy="74.60" r="2.90"/><circle cx="34.62" cy="69.71" r="2.00"/><circle cx="27.22" cy="60.31" r="2.00"/><circle cx="25.04" cy="48.54" r="2.90"/><circle cx="28.58" cy="37.11" r="2.00"/><circle cx="37.02" cy="28.63" r="2.00"/><circle cx="48.44" cy="25.05" r="2.90"/><circle cx="60.21" cy="27.18" r="2.00"/><circle cx="69.65" cy="34.54" r="2.00"/><circle cx="74.58" cy="45.44" r="2.90"/></g>
+</svg></span>
+          <div>
+            <p class="app-name">ERIOS Warehouse</p>
+            <span class="app-role wh">Sklad a logistika</span>
+          </div>
+        </div>
+        <ul class="app-feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Logistika a zásobovanie</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Pozičné sklady</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Príjem, výdaj, inventúry a kontrola</li>
+        </ul>
+        <a class="app-store" href="#" aria-label="Stiahnuť ERIOS Warehouse v službe Google Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 2.6v18.8a1 1 0 0 0 1.53.85l15.4-9.4a1 1 0 0 0 0-1.7L4.53 1.75A1 1 0 0 0 3 2.6z"/></svg>
+          <span class="gp-t"><span class="gp-s">Získať v službe</span><span class="gp-n">Google Play</span></span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="section audience" id="pre-koho">
   <div class="container">
     <span class="eyebrow" data-rise>Pre koho je ERIOS</span>
@@ -1052,6 +1141,7 @@ section{scroll-margin-top:84px}
           <li><a href="#piliere">Piliere</a></li>
           <li><a href="#preco">Prečo ERIOS</a></li>
           <li><a href="#ako">Ako funguje</a></li>
+          <li><a href="#aplikacie">Aplikácie</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
