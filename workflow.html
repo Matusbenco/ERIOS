@@ -254,6 +254,14 @@ section{scroll-margin-top:84px}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.o-spin .ring{animation:none}}
 /* ===== /ERI logo composite ===== */
+.app-tile{position:relative;overflow:hidden}
+.app-tile::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%}
+.app-tile.mgmt::before{background:linear-gradient(90deg,var(--teal),var(--teal-light))}
+.app-tile.wh::before{background:linear-gradient(90deg,var(--crimson),var(--magenta))}
+.app-tile .glyph.mgmt{background:var(--teal-ink)}
+.app-tile .glyph.wh{background:#23101b}
+.app-tile .glyph .o-spin{width:30px;height:30px;aspect-ratio:1}
+.app-tile .glyph .o-spin circle{fill:var(--teal-light);stroke:none}
 </style>
 
 </head>
@@ -433,16 +441,24 @@ section{scroll-margin-top:84px}
     <p class="lead" data-rise>Po odoslaní formulára vám pošleme uvítací e-mail. V ňom nájdete QR kódy aj prihlasovacie údaje — všetko, čo potrebujete na spustenie na telefóne. Každú rolu otvoríte na samostatnom telefóne, takže celý tok si viete prejsť aj sami.</p>
 
     <div class="app-tiles">
-      <div class="app-tile" data-rise style="--dly:.04s">
-        <div class="glyph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <div class="app-tile mgmt" data-rise style="--dly:.04s">
+        <div class="glyph mgmt"><svg class="o-spin" viewBox="0 0 100 100" aria-hidden="true">
+  <g class="ring rA"><circle cx="97.00" cy="50.00" r="2.80"/><circle cx="95.82" cy="60.46" r="1.90"/><circle cx="92.35" cy="70.39" r="1.90"/><circle cx="86.75" cy="79.30" r="2.80"/><circle cx="79.30" cy="86.75" r="1.90"/><circle cx="70.39" cy="92.35" r="1.90"/><circle cx="60.46" cy="95.82" r="2.80"/><circle cx="50.00" cy="97.00" r="1.90"/><circle cx="39.54" cy="95.82" r="1.90"/><circle cx="29.61" cy="92.35" r="2.80"/><circle cx="20.70" cy="86.75" r="1.90"/><circle cx="13.25" cy="79.30" r="1.90"/><circle cx="7.65" cy="70.39" r="2.80"/><circle cx="4.18" cy="60.46" r="1.90"/><circle cx="3.00" cy="50.00" r="1.90"/><circle cx="4.18" cy="39.54" r="2.80"/><circle cx="7.65" cy="29.61" r="1.90"/><circle cx="13.25" cy="20.70" r="1.90"/><circle cx="20.70" cy="13.25" r="2.80"/><circle cx="29.61" cy="7.65" r="1.90"/><circle cx="39.54" cy="4.18" r="1.90"/><circle cx="50.00" cy="3.00" r="2.80"/><circle cx="60.46" cy="4.18" r="1.90"/><circle cx="70.39" cy="7.65" r="1.90"/><circle cx="79.30" cy="13.25" r="2.80"/><circle cx="86.75" cy="20.70" r="1.90"/><circle cx="92.35" cy="29.61" r="1.90"/><circle cx="95.82" cy="39.54" r="2.80"/></g>
+  <g class="ring rB"><circle cx="85.60" cy="55.38" r="3.10"/><circle cx="82.19" cy="66.12" r="2.20"/><circle cx="75.64" cy="75.27" r="2.20"/><circle cx="66.57" cy="81.96" r="3.10"/><circle cx="55.88" cy="85.52" r="2.20"/><circle cx="44.62" cy="85.60" r="2.20"/><circle cx="33.88" cy="82.19" r="3.10"/><circle cx="24.73" cy="75.64" r="2.20"/><circle cx="18.04" cy="66.57" r="2.20"/><circle cx="14.48" cy="55.88" r="3.10"/><circle cx="14.40" cy="44.62" r="2.20"/><circle cx="17.81" cy="33.88" r="2.20"/><circle cx="24.36" cy="24.73" r="3.10"/><circle cx="33.43" cy="18.04" r="2.20"/><circle cx="44.12" cy="14.48" r="2.20"/><circle cx="55.38" cy="14.40" r="3.10"/><circle cx="66.12" cy="17.81" r="2.20"/><circle cx="75.27" cy="24.36" r="2.20"/><circle cx="81.96" cy="33.43" r="3.10"/><circle cx="85.52" cy="44.12" r="2.20"/></g>
+  <g class="ring rC"><circle cx="73.88" cy="57.39" r="2.90"/><circle cx="67.71" cy="67.64" r="2.00"/><circle cx="57.49" cy="73.85" r="2.00"/><circle cx="45.54" cy="74.60" r="2.90"/><circle cx="34.62" cy="69.71" r="2.00"/><circle cx="27.22" cy="60.31" r="2.00"/><circle cx="25.04" cy="48.54" r="2.90"/><circle cx="28.58" cy="37.11" r="2.00"/><circle cx="37.02" cy="28.63" r="2.00"/><circle cx="48.44" cy="25.05" r="2.90"/><circle cx="60.21" cy="27.18" r="2.00"/><circle cx="69.65" cy="34.54" r="2.00"/><circle cx="74.58" cy="45.44" r="2.90"/></g>
+</svg></div>
         <div>
           <h3>ERIOS Management</h3>
           <p>Riadenie procesov, plánovanie a vizualizácia dát — priebeh a výsledky budúcnosti na jednom mieste. Beží na bežnom Android telefóne — po naskenovaní QR funguje aj bez fyzických zariadení.</p>
           <span class="gp"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M3 3l13 9-13 9V3z"/></svg>Google Play · v uvítacom e-maile</span>
         </div>
       </div>
-      <div class="app-tile" data-rise style="--dly:.1s">
-        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
+      <div class="app-tile wh" data-rise style="--dly:.1s">
+        <div class="glyph wh"><svg class="o-spin" viewBox="0 0 100 100" aria-hidden="true">
+  <g class="ring rA"><circle cx="97.00" cy="50.00" r="2.80"/><circle cx="95.82" cy="60.46" r="1.90"/><circle cx="92.35" cy="70.39" r="1.90"/><circle cx="86.75" cy="79.30" r="2.80"/><circle cx="79.30" cy="86.75" r="1.90"/><circle cx="70.39" cy="92.35" r="1.90"/><circle cx="60.46" cy="95.82" r="2.80"/><circle cx="50.00" cy="97.00" r="1.90"/><circle cx="39.54" cy="95.82" r="1.90"/><circle cx="29.61" cy="92.35" r="2.80"/><circle cx="20.70" cy="86.75" r="1.90"/><circle cx="13.25" cy="79.30" r="1.90"/><circle cx="7.65" cy="70.39" r="2.80"/><circle cx="4.18" cy="60.46" r="1.90"/><circle cx="3.00" cy="50.00" r="1.90"/><circle cx="4.18" cy="39.54" r="2.80"/><circle cx="7.65" cy="29.61" r="1.90"/><circle cx="13.25" cy="20.70" r="1.90"/><circle cx="20.70" cy="13.25" r="2.80"/><circle cx="29.61" cy="7.65" r="1.90"/><circle cx="39.54" cy="4.18" r="1.90"/><circle cx="50.00" cy="3.00" r="2.80"/><circle cx="60.46" cy="4.18" r="1.90"/><circle cx="70.39" cy="7.65" r="1.90"/><circle cx="79.30" cy="13.25" r="2.80"/><circle cx="86.75" cy="20.70" r="1.90"/><circle cx="92.35" cy="29.61" r="1.90"/><circle cx="95.82" cy="39.54" r="2.80"/></g>
+  <g class="ring rB"><circle cx="85.60" cy="55.38" r="3.10"/><circle cx="82.19" cy="66.12" r="2.20"/><circle cx="75.64" cy="75.27" r="2.20"/><circle cx="66.57" cy="81.96" r="3.10"/><circle cx="55.88" cy="85.52" r="2.20"/><circle cx="44.62" cy="85.60" r="2.20"/><circle cx="33.88" cy="82.19" r="3.10"/><circle cx="24.73" cy="75.64" r="2.20"/><circle cx="18.04" cy="66.57" r="2.20"/><circle cx="14.48" cy="55.88" r="3.10"/><circle cx="14.40" cy="44.62" r="2.20"/><circle cx="17.81" cy="33.88" r="2.20"/><circle cx="24.36" cy="24.73" r="3.10"/><circle cx="33.43" cy="18.04" r="2.20"/><circle cx="44.12" cy="14.48" r="2.20"/><circle cx="55.38" cy="14.40" r="3.10"/><circle cx="66.12" cy="17.81" r="2.20"/><circle cx="75.27" cy="24.36" r="2.20"/><circle cx="81.96" cy="33.43" r="3.10"/><circle cx="85.52" cy="44.12" r="2.20"/></g>
+  <g class="ring rC"><circle cx="73.88" cy="57.39" r="2.90"/><circle cx="67.71" cy="67.64" r="2.00"/><circle cx="57.49" cy="73.85" r="2.00"/><circle cx="45.54" cy="74.60" r="2.90"/><circle cx="34.62" cy="69.71" r="2.00"/><circle cx="27.22" cy="60.31" r="2.00"/><circle cx="25.04" cy="48.54" r="2.90"/><circle cx="28.58" cy="37.11" r="2.00"/><circle cx="37.02" cy="28.63" r="2.00"/><circle cx="48.44" cy="25.05" r="2.90"/><circle cx="60.21" cy="27.18" r="2.00"/><circle cx="69.65" cy="34.54" r="2.00"/><circle cx="74.58" cy="45.44" r="2.90"/></g>
+</svg></div>
         <div>
           <h3>ERIOS Warehouse</h3>
           <p>Sklad, príjem a expedícia v reálnom čase. Detailné sledovanie tam, kde vznikajú chyby — a peniaze. Stačí bežný Android telefón — naskenujete QR a hneď skladujete aj bez skenerov.</p>
